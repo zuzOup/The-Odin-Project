@@ -1,17 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+PL:wght@100..400&display=swap");
 :root {
   --col0: rgb(255, 255, 255);
-  --col1: #f7ede2;
-  --col2: #f5cac3;
-  --col3: #f6bd60;
-  --col4: #f28482;
-  --col5: #50625d63;
+  --col1: #fff8ea;
+  --col2: rgb(255, 194, 177);
+  --col3: rgb(255, 190, 81);
+  --col4: rgb(253, 138, 125);
+  --col5: #ad9462;
+
+  --font: "Urbanist", sans-serif;
+  --fontHeader: "Playwrite PL", cursive;
 }
 
 html,
 body {
   margin: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 
   background-color: var(--col0);
 }
@@ -27,20 +32,25 @@ h6 {
 
 h2,
 h3,
-h4,
 h5,
 h6 {
-  font-family: "Send Flowers", cursive;
+  font-family: var(--fontHeader);
 }
 
 p,
 button,
 a,
-h1 {
-  font-family: "Short Stack", cursive;
+h1,
+h4 {
+  font-family: var(--font);
+}
+
+h2 {
+  font-weight: 500;
 }
 
 h3 {
+  font-weight: 400;
   font-size: 1.5em;
 }
 
@@ -49,6 +59,7 @@ h4 {
 }
 
 h6 {
+  font-weight: 200;
   font-size: 0.9em;
 }
 
@@ -236,6 +247,14 @@ header {
       border-radius: 50%;
     }
 
+    a {
+      all: unset;
+      font-weight: 300;
+      font-family: var(--fontHeader);
+      margin: 0;
+      cursor: pointer;
+    }
+
     button {
       width: 70%;
       height: 70%;
@@ -254,7 +273,7 @@ header {
 }
 
 main {
-  margin: 0px 50px 50px 20px;
+  margin: 10px 50px 30px 20px;
 
   grid-area: 2 / 2 / 3 / 3;
 
@@ -313,7 +332,9 @@ main {
       grid-row-gap: 0px;
 
       p {
-        font-size: 12px;
+        margin: 3px;
+        text-align: justify;
+        font-size: 1vw;
       }
 
       div:last-child {
