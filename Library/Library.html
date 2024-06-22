@@ -9,23 +9,30 @@
     <title>Library (TOD)</title>
   </head>
   <body>
-    <form id="form">
-      <label for="title">Title:</label>
-      <input type="text" id="title" name="title" placeholder="Book's Title" />
-
-      <label for="author">Author:</label>
-      <input type="text" id="author" name="author" placeholder="Author's Name" />
-
-      <label for="pages">Number of pages:</label>
-      <input type="number" id="pages" name="pages" />
-
-      <label for="read">Read?</label>
-      <input type="checkbox" id="read" name="read" />
-
-      <button id="form-button" type="button">Add book</button>
-    </form>
+    <header>
+      <form id="form">
+        <div>
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" placeholder="Book's Title" />
+        </div>
+        <div>
+          <label for="author">Author:</label>
+          <input type="text" id="author" name="author" placeholder="Author's Name" />
+        </div>
+        <div>
+          <label for="pages">Number of pages:</label>
+          <input type="number" id="pages" name="pages" />
+        </div>
+        <div>
+          <label for="read">Read?</label>
+          <input type="checkbox" id="read" name="read" />
+        </div>
+        <button id="form-button" type="button">Add book</button>
+      </form>
+    </header>
 
     <button id="example">Load Example</button>
+    <button id="delete">Delete all</button>
 
     <div id="library"></div>
 

@@ -54,8 +54,6 @@ const newElement = (data, id) => {
   book.id = id;
 
   Object.keys(data).forEach((x) => {
-    console.log(x);
-
     if (x !== "read") {
       const subDiv = document.createElement("div");
       subDiv.innerHTML = data[x];
@@ -88,6 +86,7 @@ const newElement = (data, id) => {
   });
 
   book.append(button);
+  book.style.background = randomBackground();
 
   library.appendChild(book);
 };
@@ -97,6 +96,50 @@ const readFunction = (e) => {
   const book = myLibrary[index];
   book.read = e.target.checked;
   myLibrary[index] = book;
+};
+
+const randomBackground = () => {
+  const colors = [
+    "rgb(252, 216, 186)",
+    "rgb(255, 218, 207)",
+    "rgb(250, 203, 195)",
+    "rgb(255, 221, 163)",
+    "#fff0ec",
+  ];
+
+  const randomColor = () => {
+    return colors[Math.floor(Math.random() * colors.length)];
+  };
+
+  const color1 = randomColor();
+  const color2 = randomColor();
+
+  const patterns = [
+    `repeating-conic-gradient(from 45deg, ${color1} 0% 25%, ${color2} 0% 50%)`,
+    `conic-gradient(from 116.56deg at calc(100%/3) 0, #0000 90deg,${color1} 0),
+      conic-gradient(from -63.44deg at calc(200%/3) 100%, #0000 90deg,${color1} 0)
+      ${color2}`,
+    `radial-gradient(farthest-side at -33.33% 50%,#0000 52%,${color1} 54% 57%,#0000 59%) 0 calc(40px/2),
+      radial-gradient(farthest-side at 50% 133.33%,#0000 52%,${color1} 54% 57%,#0000 59%) calc(40px/2) 0,
+      radial-gradient(farthest-side at 133.33% 50%,#0000 52%,${color1} 54% 57%,#0000 59%),
+      radial-gradient(farthest-side at 50% -33.33%,#0000 52%,${color1} 54% 57%,#0000 59%),
+      ${color2}`,
+    ` linear-gradient(135deg,#0000 18.75%,${color1} 0 31.25%,#0000 0),
+      repeating-linear-gradient(45deg,${color1} -6.25% 6.25%,${color2} 0 18.75%)`,
+    `radial-gradient(27% 29% at right, #0000 83%,${color1} 85% 99%,#0000 101%) calc(10px/2) 10px,
+      radial-gradient(27% 29% at left, #0000 83%,${color1} 85% 99%,#0000 101%) calc(10px/-2) 10px,
+      radial-gradient(29% 27% at top, #0000 83%,${color1} 85% 99%,#0000 101%) 0 calc(10px/2),
+      radial-gradient(29% 27% at bottom, #0000 83%,${color1} 85% 99%,#0000 101%) 0 calc(10px/-2)
+      ${color2}`,
+    `radial-gradient(at 80% 80%,${color2} 25.4%,#0000 26%),
+      radial-gradient(at 20% 80%,${color2} 25.4%,#0000 26%),
+      conic-gradient(from -45deg at 50% 41%,${color2} 90deg,${color1} 0) 
+        10px 0`,
+  ];
+
+  console.log(patterns[Math.floor(Math.random() * patterns.length)]);
+
+  return patterns[Math.floor(Math.random() * patterns.length)];
 };
 
 /*example */
@@ -120,3 +163,15 @@ example.addEventListener("click", function () {
 });
 
 example.click();
+
+/*delete */
+
+const deleteButton = document.getElementById("delete");
+
+deleteButton.addEventListener("click", function () {
+  myLibrary.splice(0, myLibrary.length);
+
+  const books = Array.from(library.children);
+
+  books.forEach((book) => book.remove());
+});
