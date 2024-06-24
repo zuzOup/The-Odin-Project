@@ -121,9 +121,14 @@ form {
 
   border: 1px solid black;
 
-  transition: all 0.1s ease-in-out;
-
   background-size: 20px 20px !important;
+
+  transition: opacity 0s linear, width 300ms ease-in;
+
+  &.remove {
+    opacity: 0;
+    width: 0px;
+  }
 
   button {
     all: unset;

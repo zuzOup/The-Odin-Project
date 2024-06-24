@@ -32,13 +32,18 @@ function addBookToLibrary(e) {
   form.reset();
 }
 
-const removeBook = (id) => {
+const removeBook = async (id) => {
   const index = myLibrary.findIndex((book) => book.id === id);
   if (index > -1) {
     myLibrary.splice(index, 1);
   }
 
   const book = document.getElementById(id);
+
+  book.classList.add("remove");
+
+  await new Promise((r) => setTimeout(r, 300));
+
   book.remove();
 };
 
@@ -137,8 +142,6 @@ const randomBackground = () => {
         10px 0`,
   ];
 
-  console.log(patterns[Math.floor(Math.random() * patterns.length)]);
-
   return patterns[Math.floor(Math.random() * patterns.length)];
 };
 
@@ -154,11 +157,11 @@ const example_data = [
 ];
 
 example.addEventListener("click", function () {
-  const length = myLibrary.length;
+  const idStamp = `${Date.now()}`;
 
   example_data.forEach((book, id) => {
-    newElement({ ...book }, length + id);
-    addBook({ ...book }, length + id);
+    newElement({ ...book }, idStamp + id);
+    addBook({ ...book }, idStamp + id);
   });
 });
 
