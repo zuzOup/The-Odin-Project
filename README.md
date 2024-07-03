@@ -3,7 +3,7 @@
 text text text
 
 
-- **Sign up Form**  &nbsp;&nbsp;&nbsp;&nbsp; text1ssssssssssss ssssssss sext1sssssssssssssssssss ssext1sssssssssss ssssssssssex t1sssssssssssssssssssssext 1ssssssssssssssss s ssssext1sssssssssssssssssssss ext1ssssssssssssssssssss sext1ssss sssssssssssss ssssext1ssssssssss sssssssssssext1sssss ssssssssssssssssext1ssssssssssss ssssssssext1sssssssss ssssssssssssext1sssssssssssssssss ssssext1ssssssssssssssss sssssext1sssssssssssssssssssssext1ssssss sssssssssssssssext1sssssssssssssss ssssssext1ssssssssssss sssssssssext1ssssssss sssssssssssss
-- **Admin Dashboard** &nbsp;&nbsp;&nbsp;&nbsp; text2
-- **Library**  &nbsp;&nbsp;&nbsp;&nbsp; text3
-- **Tic-Tac-Toe**  &nbsp;&nbsp;&nbsp;&nbsp; HTML/CSS/JS Tic Tac Toe game you can play in your browser! 
+- **Sign up Form**  &nbsp;&nbsp;&nbsp;&nbsp; Sign-up form for an imaginary service. HTML forms exercise.
+- **Admin Dashboard** &nbsp;&nbsp;&nbsp;&nbsp; Mock Admin Dashboard. CSS grid exercise.
+- **Library**  &nbsp;&nbsp;&nbsp;&nbsp; Library app/ book list. JS Objects and Object Constructors exercise.
+- **Tic-Tac-Toe**  &nbsp;&nbsp;&nbsp;&nbsp; HTML/CSS/JS Tic Tac Toe game you can play in your browser! JS Factory functions and Module Pattern exercise. 
