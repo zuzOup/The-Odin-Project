@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe (TOD)</title>
+
+    <link rel="stylesheet" href="Tic-Tac-Toe.css" />
+  </head>
+  <body>
+    <div id="form">
+      <h1><span>Tic</span> - <span>Tac</span> - <span>Toe</span></h1>
+      <form>
+        <fieldset>
+          <h2>Player 1</h2>
+          <label for="player1_name">Name:</label>
+          <input
+            type="text"
+            id="player1_name"
+            name="player1_name"
+            data-placeholder="Player 1"
+            placeholder="Player 1"
+          />
+          <br />
+          <label for="player1__symbol">Symbol:</label>
+          <input
+            type="text"
+            id="player1_symbol"
+            name="player1_symbol"
+            data-placeholder="X"
+            placeholder="X"
+            minlength="1"
+            maxlength="5"
+          />
+        </fieldset>
+        <fieldset>
+          <h2>Player 2</h2>
+          <label for="player2_name">Name:</label>
+          <input
+            type="text"
+            id="player2_name"
+            name="player2_name"
+            data-placeholder="Player 2"
+            placeholder="Player 2"
+          />
+          <br />
+          <label for="player2_symbol">Symbol:</label>
+          <input
+            type="text"
+            id="player2_symbol"
+            name="player2_symbol"
+            data-placeholder="O"
+            placeholder="O"
+            minlength="1"
+            maxlength="5"
+          />
+        </fieldset>
+        <span>
+          <button type="submit" id="submitButton">Start the game!</button>
+          <div id="form_error"></div
+        ></span>
+      </form>
+    </div>
+    <div class="gameboard">
+      <div class="player">
+        <h2 id="player1"></h2>
+        <h3 id="player1_sym"></h3>
+        <h4>Wins: <span id="player1_score"></span></h4>
+      </div>
+      <div>
+        <div id="turn"></div>
+        <div id="gameboard">
+          <div id="square0"></div>
+          <div id="square1"></div>
+          <div id="square2"></div>
+          <div id="square3"></div>
+          <div id="square4"></div>
+          <div id="square5"></div>
+          <div id="square6"></div>
+          <div id="square7"></div>
+          <div id="square8"></div>
+        </div>
+      </div>
+      <div class="player">
+        <h2 id="player2"></h2>
+        <h3 id="player2_sym"></h3>
+        <h4>Wins: <span id="player2_score"></span></h4>
+      </div>
+    </div>
+    <button id="next" class="hidden">Next Game!</button>
+    <button id="newGame">New Game!</button>
+    <script src="./Tic-Tac-Toe.js"></script>
+  </body>
+</html>
