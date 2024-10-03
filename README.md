@@ -1,8 +1,11 @@
 # The Odin Project
 
-text text text
+<em>The Odin Project provides a free open source coding curriculum that can be taken entirely online. Since its inception, it has helped many students get hired as developers and has assisted countless others in learning enough programming to work on their own personal projects.</em>
 
 
-- **Sign up Form**  &nbsp;&nbsp;&nbsp;&nbsp; text1ssssssssssss ssssssss sext1sssssssssssssssssss ssext1sssssssssss ssssssssssex t1sssssssssssssssssssssext 1ssssssssssssssss s ssssext1sssssssssssssssssssss ext1ssssssssssssssssssss sext1ssss sssssssssssss ssssext1ssssssssss sssssssssssext1sssss ssssssssssssssssext1ssssssssssss ssssssssext1sssssssss ssssssssssssext1sssssssssssssssss ssssext1ssssssssssssssss sssssext1sssssssssssssssssssssext1ssssss sssssssssssssssext1sssssssssssssss ssssssext1ssssssssssss sssssssssext1ssssssss sssssssssssss
-- **Admin Dashboard** &nbsp;&nbsp;&nbsp;&nbsp; text2
-- **Library**  &nbsp;&nbsp;&nbsp;&nbsp; text3
+Projects I have completed as part of the [Full Stack Javascript Path](https://www.theodinproject.com/paths/full-stack-javascript):
+
+- **[Sign-up Form](https://zuzoup.github.io/The-Odin-Project/Sign-up-Form/)**  &nbsp;&nbsp;&nbsp;&nbsp; Sign-up form for an imaginary service. HTML forms exercise.
+- **[Admin Dashboard](https://zuzoup.github.io/The-Odin-Project/Admin-Dashboard/)** &nbsp;&nbsp;&nbsp;&nbsp; Mock Admin Dashboard. CSS grid exercise.
+- **[Library](https://zuzoup.github.io/The-Odin-Project/Library/)**  &nbsp;&nbsp;&nbsp;&nbsp; Library app/ book list. JS Objects and Object Constructors exercise.
+- **[Tic-Tac-Toe](https://zuzoup.github.io/The-Odin-Project/Tic-Tac-Toe/)**  &nbsp;&nbsp;&nbsp;&nbsp; Tic Tac Toe game you can play in your browser! JS Factory functions and Module Pattern exercise. 
