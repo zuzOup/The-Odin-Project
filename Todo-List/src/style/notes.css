@@ -1,0 +1,98 @@
+#notes-grid {
+  margin: 0px 20px 40px 20px;
+  padding-top: 20px;
+
+  .notes {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+    gap: 20px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+
+  #notes-add-button {
+    all: unset;
+  }
+  .note,
+  #notes-add-button {
+    flex: 0 0 calc(25% - 60px);
+
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: var(--low);
+
+    & > div {
+      /* all: unset; */
+      word-break: break-word;
+      overflow-wrap: break-word;
+      text-align: justify;
+      caret-color: var(--background);
+      border: 0px;
+
+      &:empty:before {
+        content: attr(placeholder);
+        pointer-events: none;
+        display: block; /* For Firefox */
+        font-style: italic;
+        color: var(--background);
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+    button {
+      all: unset;
+
+      text-align: center;
+      font-size: 5px;
+      display: block;
+      line-height: 0;
+
+      width: 10px;
+      height: 10px;
+      background-color: var(--background);
+      position: relative;
+      float: right;
+      transform: translateX(15px) translateY(-5px);
+      border-radius: 10px;
+      border: 1px solid var(--menu);
+      color: var(--menu);
+
+      transition: all 200ms ease-in-out;
+
+      &:hover {
+        cursor: pointer;
+        color: black;
+      }
+
+      &:active {
+        transform: translateX(15px) translateY(-3px);
+      }
+    }
+  }
+
+  #notes-add-button {
+    background-color: var(--menu);
+    height: 100px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  #notes-add-button:hover {
+    cursor: pointer;
+    box-shadow: rgba(99, 99, 99, 0.7) 0px 2px 8px 0px;
+    color: var(--background);
+  }
+
+  #notes-add-button:active {
+    transform: translateY(2px);
+  }
+}

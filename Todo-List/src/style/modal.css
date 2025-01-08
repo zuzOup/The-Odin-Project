@@ -1,0 +1,342 @@
+#modal-add.open,
+#modal-edit.open,
+#modal-delete-project.open {
+  opacity: 1;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--background30);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  justify-content: center;
+
+  transition: opacity 300ms ease-in-out;
+
+  .inner {
+    width: 60%;
+    min-width: 815px;
+    height: 400px;
+    margin: 100px 0 0 0;
+    background-color: var(--background);
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
+
+    display: flex;
+
+    #modal-add-menu {
+      margin: 0;
+      height: 100%;
+      width: 20%;
+      min-width: 120px;
+      background-color: var(--menu);
+      border-radius: 5px 0 0 5px;
+      border-right: 1px solid var(--gray);
+      li {
+        margin-left: 15px;
+        svg {
+          margin-right: 0;
+        }
+      }
+      li:first-child {
+        margin-top: 30px;
+      }
+    }
+
+    .modal-content,
+    .modal-edit-content {
+      width: 80%;
+      margin: 0 5%;
+      display: flex;
+      flex-direction: column;
+      h3 {
+        width: 100%;
+        text-align: center;
+        font-size: 30px;
+        color: var(--menu);
+      }
+
+      hr {
+        border-color: var(--menu);
+        border-top: 0;
+        margin-bottom: 30px;
+      }
+
+      #modal-add-content {
+        height: 200px;
+      }
+
+      #modal-add-content,
+      #modal-add-content > div {
+        display: flex;
+        flex-direction: column;
+      }
+
+      input:not([type="radio"]) {
+        all: unset;
+        height: 20px;
+        margin: 20px 0;
+        border-bottom: solid 1px gray;
+
+        &::placeholder {
+          color: transparent;
+        }
+
+        &:placeholder-shown ~ label {
+          cursor: text;
+          bottom: 40px;
+          font-size: 18px;
+        }
+      }
+
+      label {
+        height: 0;
+        position: relative;
+        color: var(--modal-label);
+        bottom: 55px;
+        font-size: 12px;
+        transition: all 200ms ease-in-out;
+      }
+      input:not([type="radio"]):focus ~ label {
+        bottom: 55px !important;
+        font-size: 12px !important;
+      }
+
+      input:hover ~ label,
+      input:focus ~ label {
+        color: var(--menu);
+      }
+
+      .due-priority {
+        height: 60px;
+        margin: 10px 0;
+        width: 100%;
+        display: flex;
+        flex-direction: row !important;
+        justify-content: flex-start;
+
+        .due,
+        .project {
+          min-width: 120px;
+          width: 100%;
+          margin-right: 50px;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .priority {
+          min-width: 205px;
+          .inputs {
+            height: 20px;
+            margin: 20px 0;
+
+            .label {
+              height: 0;
+              position: relative;
+              bottom: 35px;
+              font-size: 12px;
+              color: var(--modal-label);
+              transition: all 200ms ease-in-out;
+            }
+
+            .radio-inputs:hover ~ .label {
+              color: var(--menu);
+            }
+
+            .radio-inputs {
+              height: 20px;
+            }
+
+            input {
+              width: 0px;
+              height: 0px;
+
+              &:checked + label {
+                color: var(--background);
+              }
+
+              &:checked + label.low {
+                background-color: var(--low);
+              }
+              &:checked + label.medium {
+                background-color: var(--medium);
+              }
+              &:checked + label.high {
+                background-color: var(--high);
+              }
+            }
+            label {
+              top: 0;
+              font-size: 15px;
+              border: 1px solid;
+              position: relative;
+
+              padding: 1px 8px;
+              border-radius: 8px;
+
+              &.low {
+                color: var(--low);
+                left: -12px;
+
+                &:hover {
+                  background-color: var(--low);
+                  color: var(--background);
+                  cursor: pointer;
+                }
+              }
+
+              &.medium {
+                color: var(--medium);
+                left: -6px;
+                &:hover {
+                  background-color: var(--medium);
+                  color: var(--background);
+                  cursor: pointer;
+                }
+              }
+              &.high {
+                color: var(--high);
+                &:hover {
+                  background-color: var(--high);
+                  color: var(--background);
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .modal-button-add {
+      all: unset;
+      margin: 30px 0 0 0;
+      align-self: end;
+      font-size: 20px;
+      color: var(--menu);
+      background-color: var(--background);
+      padding: 6px 15px;
+      border: solid 1px var(--menu);
+      border-radius: 8px;
+      transition: color 200ms ease-in-out, background-color 200ms ease-in-out,
+        transform 100ms ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--menu);
+        color: var(--background);
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+      }
+      &:active {
+        transform: translateY(2px);
+      }
+    }
+  }
+
+  #modal-add-close,
+  #modal-edit-close,
+  #modal-delete-project-close {
+    width: 0;
+    height: 0;
+    position: relative;
+    top: 105px;
+    left: -25px;
+
+    button {
+      all: unset;
+      cursor: pointer;
+      text-align: center;
+      width: 20px;
+      height: 20px;
+      color: gray;
+      font-weight: 300;
+      transition: all 200ms;
+
+      &:hover {
+        font-weight: 1000;
+        color: var(--menu);
+      }
+
+      &:active {
+        color: var(--high);
+      }
+    }
+  }
+}
+
+#modal-add.hidden,
+#modal-delete-project.hidden,
+#modal-edit.hidden {
+  opacity: 0;
+  display: none;
+  transition: opacity 300ms ease-in-out;
+}
+
+#modal-delete-project {
+  .inner {
+    width: 40% !important;
+    min-width: 500px !important;
+    height: 200px !important;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #modal-delete-buttons {
+    button {
+      all: unset;
+      width: 30px;
+      height: 20px;
+      margin: 0 5px;
+      padding: 2px 5px;
+      text-align: center;
+      border-radius: 3px;
+      cursor: pointer;
+      border: 1px solid var(--menu);
+      background-color: var(--background);
+      outline: none;
+      transition: all 50ms ease-in-out;
+
+      &:hover {
+        outline: 2px solid var(--menu);
+      }
+      &:active {
+        outline: 2px solid var(--menu);
+        background-color: var(--menu);
+        color: var(--background);
+      }
+    }
+  }
+}
+
+#modal-edit.open {
+  margin: 0;
+
+  .inner {
+    width: 50%;
+    min-width: 680px;
+  }
+  .modal-edit-content {
+    width: 100% !important;
+    & > div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  #modal-edit-project {
+    color: grey;
+  }
+}
+
+.alert {
+  font-size: 11px;
+  font-weight: 100;
+  font-style: italic;
+  position: absolute;
+  z-index: 1000;
+  color: var(--alert);
+}

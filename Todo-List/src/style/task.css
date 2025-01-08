@@ -1,0 +1,198 @@
+.task {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 600ms ease-in-out;
+  border-radius: 4px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+  &.checked {
+    background-color: var(--gray) !important;
+    color: var(--text-disabled);
+  }
+
+  &.right {
+    transform: translateX(105%);
+  }
+
+  input {
+    width: 30px;
+    height: 30px;
+    margin: 35px 35px;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+
+    border: 1px solid var(--menu);
+    appearance: none;
+    background-color: var(--task-input);
+    outline: none;
+    transition: all 100ms ease-in-out;
+  }
+
+  input[type="checkbox"]:checked {
+    background-size: cover;
+    padding: 2px;
+  }
+
+  input[type="checkbox"]:not(:disabled):checked {
+    border-color: var(--menu);
+  }
+
+  input[type="checkbox"]:not(:disabled):hover {
+    outline: 2px solid var(--menu);
+    transform: scale(1.05);
+  }
+
+  .title-details {
+    width: 50%;
+  }
+
+  .task-date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+  }
+
+  .task-date.overdue {
+    color: var(--alert);
+  }
+
+  .task-date.overdue::after {
+    content: " !";
+  }
+
+  .task-priority {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .priority-bar {
+      width: 55px;
+      height: 30px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 5px;
+
+      .priority-bar-1 {
+        width: 12px;
+        height: 10px;
+        border: 1px solid var(--text);
+      }
+
+      .priority-bar-2 {
+        width: 12px;
+        height: 20px;
+        border: 1px solid var(--text);
+      }
+
+      .priority-bar-3 {
+        width: 12px;
+        height: 30px;
+        border: 1px solid var(--text);
+      }
+    }
+
+    .priority-bar.low {
+      .priority-bar-1 {
+        background-color: var(--text);
+      }
+    }
+
+    .priority-bar.medium {
+      .priority-bar-1,
+      .priority-bar-2 {
+        background-color: var(--text);
+      }
+    }
+
+    .priority-bar.high {
+      .priority-bar-1,
+      .priority-bar-2,
+      .priority-bar-3 {
+        background-color: var(--text);
+      }
+    }
+  }
+
+  &.checked {
+    .task-priority {
+      .priority-bar {
+        .priority-bar-1 {
+          border: 1px solid var(--text-disabled) !important;
+        }
+
+        .priority-bar-2 {
+          border: 1px solid var(--text-disabled) !important;
+        }
+
+        .priority-bar-3 {
+          border: 1px solid var(--text-disabled) !important;
+        }
+      }
+
+      .priority-bar.low {
+        .priority-bar-1 {
+          background-color: var(--text-disabled) !important;
+        }
+      }
+
+      .priority-bar.medium {
+        .priority-bar-1,
+        .priority-bar-2 {
+          background-color: var(--text-disabled) !important;
+        }
+      }
+
+      .priority-bar.high {
+        .priority-bar-1,
+        .priority-bar-2,
+        .priority-bar-3 {
+          background-color: var(--text-disabled) !important;
+        }
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    margin: 0 35px 0 0;
+    gap: 10px;
+
+    button {
+      all: unset;
+      width: 30px;
+      height: 20px;
+      padding: 2px 5px;
+      text-align: center;
+
+      border-radius: 3px;
+      cursor: pointer;
+      border: 1px solid var(--menu);
+      background-color: var(--task-input);
+      color: var(--task-input-text);
+      outline: none;
+      transition: all 50ms ease-in-out;
+
+      &:hover {
+        outline: 2px solid var(--menu);
+      }
+      &:active {
+        outline: 2px solid var(--menu);
+        background-color: var(--menu);
+        color: var(--background);
+      }
+    }
+  }
+}
