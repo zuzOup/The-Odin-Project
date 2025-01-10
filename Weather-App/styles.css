@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap");
+
+body {
+  all: unset;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  background-color: #f9f6f43e;
+
+  font-family: "Afacad", serif;
+}
+
+body > div:first-child {
+  width: 1000px;
+
+  margin: 50px 0 20px 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 20px;
+
+  input {
+    width: 300px;
+    height: 20px;
+    border-radius: 8px;
+    margin: 0 10px;
+    font-size: 15px;
+    padding: 10px 15px;
+    border: 3px outset #fa8072;
+    font-family: "Afacad", serif;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: all 100ms ease-in-out;
+  }
+
+  input:active,
+  input:focus {
+    outline: none;
+
+    border: 3px inset salmon;
+  }
+
+  input:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  button {
+    all: unset;
+    cursor: pointer;
+    height: 20px;
+    border-radius: 8px;
+    margin: 0 10px;
+    font-size: 15px;
+    padding: 10px 15px;
+    font-family: "Afacad", serif;
+    border: 3px solid salmon;
+    background-color: rgba(250, 128, 114, 0.5);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: all 50ms ease-in-out;
+  }
+
+  button:hover {
+    border: 3px solid salmon;
+    background-color: salmon;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  button:active {
+    transform: translateY(2px);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+}
+
+body > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+h2,
+h3,
+h4 {
+  margin: 0px;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 20px;
+  font-size: 25px;
+}
+
+h3 {
+  font-size: 10px;
+  font-weight: 100;
+  font-style: italic;
+}
+
+h4 {
+  font-size: 15px;
+}
+
+#temps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 30px;
+  #temp {
+    font-size: 50px;
+    font-weight: 600;
+  }
+}
+
+#animation {
+  height: 100px;
+  width: 170px;
+  margin: 50px;
+  scale: 1.5;
+}
+
+#forecast {
+  display: flex;
+
+  & > div {
+    margin: 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .forecast-icon {
+    font-size: 30px;
+  }
+
+  .forecast-temp {
+    font-size: 12px;
+  }
+}
+
+/*Loader animation from https://css-loaders.com/nature/*/
+#loader {
+  margin-top: 50px;
+  width: 160px;
+  height: 80px;
+  border-radius: 100px 100px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+#loader:before {
+  content: "";
+  position: absolute;
+  inset: 0 0 -100%;
+  background: radial-gradient(farthest-side, #ffd738 80%, #0000) left 70% top 20%/30px
+      30px,
+    radial-gradient(farthest-side, #020308 92%, #0000) left 65% bottom 19%/24px 24px,
+    radial-gradient(farthest-side, #ecfefe 92%, #0000) left 70% bottom 20%/30px 30px,
+    linear-gradient(#9eddfe 50%, #020308 0);
+  background-repeat: no-repeat;
+  animation: l5 2s infinite;
+}
+@keyframes l5 {
+  0%,
+  20% {
+    transform: rotate(0);
+  }
+  40%,
+  60% {
+    transform: rotate(0.5turn);
+  }
+  80%,
+  100% {
+    transform: rotate(1turn);
+  }
+}
+/*---end loaders---*/
+
+footer {
+  height: 25px;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(250, 128, 114, 0.601);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  a {
+    all: unset;
+    font-weight: 500;
+    color: rgb(134, 67, 59);
+    transition: all 100ms;
+    cursor: pointer;
+    font-style: italic;
+  }
+
+  a:hover {
+    color: white;
+  }
+}

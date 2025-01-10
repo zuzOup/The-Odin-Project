@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Weather App || Zuzana O. || The Odin's project</title>
+    <link rel="icon" href="https://fav.farm/🌦️" type="image/x-icon" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./animations/weather.css" />
+    <link rel="stylesheet" href="./animations/leavesboltPixelArt.css" />
+  </head>
+  <body>
+    <div>
+      <input type="text" id="input" placeholder="Type in city or country..." />
+      <button id="submit">Submit</button>
+    </div>
+    <div id="weather">
+      <div id="today"></div>
+      <div id="animation">
+        <div class="container">
+          <div class="sunny">
+            <div class="sunblock"><div class="sun"></div></div>
+            <div class="beam"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="partlyCloudy">
+            <div class="sunPart">
+              <div class="sunblock"><div class="sun"></div></div>
+              <div class="beam"></div>
+              <div class="sunshade"></div>
+            </div>
+            <div class="cloudPart cloudPartPC">
+              <div class="upperClouds upperCloudsPC cloudContainer">
+                <div class="cloud1"></div>
+                <div class="cloud2"></div>
+                <div class="cloud3"></div>
+              </div>
+              <div class="middleClouds middleCloudsPC cloudContainer">
+                <div class="cloud1"></div>
+                <div class="cloud2"></div>
+                <div class="cloud3"></div>
+              </div>
+              <div class="lowerClouds lowerCloudsPC cloudContainer">
+                <div class="cloud1"></div>
+                <div class="cloud2"></div>
+                <div class="cloud3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="clouds">
+            <div class="cloudPart">
+              <div class="upperClouds upperCloudsC cloudContainer">
+                <div class="cloud1"></div>
+                <div class="cloud2"></div>
+                <div class="cloud3"></div>
+              </div>
+              <div class="middleClouds middleCloudsC cloudContainer">
+                <div class="cloud1"></div>
+                <div class="cloud2"></div>
+                <div class="cloud3"></div>
+              </div>
+              <div class="lowerClouds lowerCloudsC cloudContainer">
+                <div class="cloud1"></div>
+                <div class="cloud2"></div>
+                <div class="cloud3"></div>
+              </div>
+            </div>
+            <div class="leafyPart">
+              <div class="leaf leaf1"><div></div></div>
+              <div class="leaf leaf2"><div></div></div>
+              <div class="leaf leaf3"><div></div></div>
+              <div class="leaf leaf4"><div></div></div>
+              <div class="leaf leaf5"><div></div></div>
+              <div class="leaf leaf6"><div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="ultraRainy">
+            <div class="cloudPart">
+              <div class="upperClouds upperCloudsUR cloudContainer">
+                <div class="cloud1"></div>
+                <div class="cloud2"></div>
+                <div class="cloud3"></div>
+              </div>
+
+              <div class="middleClouds middleCloudsUR cloudContainer">
+                <div class="cloud1"></div>
+                <div class="cloud2"></div>
+                <div class="cloud3"></div>
+              </div>
+              <div class="rainPart rainUR1">
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+              </div>
+              <div class="bolt" id="bolt">
+                <div></div>
+              </div>
+              <div class="lowerClouds lowerCloudsUR cloudContainer">
+                <div class="cloud1"></div>
+                <div class="cloud2"></div>
+                <div class="cloud3"></div>
+              </div>
+              <div class="rainPart rainPart2 rainUR2">
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="snowy">
+            <div class="cloudPart">
+              <div class="upperClouds upperCloudsS cloudContainer">
+                <div class="cloud1"></div>
+                <div class="cloud2"></div>
+                <div class="cloud3"></div>
+              </div>
+
+              <div class="middleClouds middleCloudsS cloudContainer">
+                <div class="cloud1"></div>
+                <div class="cloud2"></div>
+                <div class="cloud3"></div>
+              </div>
+              <div class="snowPart">
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+              </div>
+              <div class="lowerClouds lowerCloudsS cloudContainer">
+                <div class="cloud1"></div>
+                <div class="cloud2"></div>
+                <div class="cloud3"></div>
+              </div>
+              <div class="snowPart snowPart2">
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+                <div class="snowflake"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="forecast"></div>
+    </div>
+    <footer>
+      <div>
+        :･*࿔༄⛈ೃ⋆☀︎ &nbsp Made by
+        <a href="https://github.com/zuzOup/" target="_blank">Zuzana O.</a> &nbsp
+        ☀︎⋆.ೃ⛈༄࿔*:･
+      </div>
+      <div>
+        :･*࿔༄⛈ೃ⋆☀︎ &nbsp Weather animations
+        <a href="https://codepen.io/zuzOup/pen/LYvQybW" target="_blank">here</a> (also by
+        <a href="https://github.com/zuzOup/_weather-cards" target="_blank">Zuzana O.</a>)
+        &nbsp ☀︎⋆.ೃ⛈༄࿔*:･
+      </div>
+    </footer>
+
+    <script src="script.js" type="text/javascript"></script>
+    <script src="./animations/weather.js" type="text/javascript"></script>
+  </body>
+</html>
