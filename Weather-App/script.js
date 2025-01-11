@@ -2,15 +2,28 @@ const submitButton = document.getElementById("submit");
 const input = document.getElementById("input");
 
 submitButton.onclick = () => {
+  loader();
   weatherFetch(input.value);
   input.value = "";
 };
 
 input.onkeydown = (e) => {
   if (e.key === "Enter") {
+    loader();
     weatherFetch(input.value);
     input.value = "";
   }
+};
+
+const toggle = document.getElementById("toggle");
+let toggleValue = true;
+
+toggle.onclick = () => {
+  toggleValue = !toggleValue;
+
+  toggleValue ? (toggle.innerHTML = "°C") : (toggle.innerHTML = "°F");
+
+  weatherFetch(document.getElementsByTagName("h2")[0].innerHTML);
 };
 
 // function delay(ms) {
@@ -18,8 +31,6 @@ input.onkeydown = (e) => {
 // }
 
 async function weatherFetch(location) {
-  loader();
-
   try {
     // await delay(1000);      // test loading delay
 
@@ -77,11 +88,11 @@ function displayWeather(place, description, today, forecast) {
   <h3>${formatDate(today.date)}</h3> 
   <h4>${description}</h4>
   <div id="temps">
-    <div id="temp">${today.temp}°C</div>
+    <div id="temp">${today.temp}${isC()}</div>
     <div id="temp-mmf">
-      <div class="temp">Min: ${today.tempmin}°C</div>
-      <div class="temp">Max: ${today.tempmax}°C</div>
-      <div class="temp">Feels like: ${today.feelslike}°C</div>
+      <div class="temp">Min: ${today.tempmin}${isC()}</div>
+      <div class="temp">Max: ${today.tempmax}${isC()}</div>
+      <div class="temp">Feels like: ${today.feelslike}${isC()}</div>
     </div>
   </div>  `;
 
@@ -91,8 +102,8 @@ function displayWeather(place, description, today, forecast) {
     const day = document.createElement("div");
     day.innerHTML = `<div class='forecat-day'>${getDayOfWeek(x.date)}</div>
       <div class="forecast-icon">${weatherIcons[x.icon]}</div>
-      <div class="forecast-temp">Min: ${x.tempmin}°C</div>
-      <div class="forecast-temp">Max: ${today.tempmax}°C</div>`;
+      <div class="forecast-temp">Min: ${x.tempmin}${isC()}</div>
+      <div class="forecast-temp">Max: ${today.tempmax}${isC()}</div>`;
 
     forecastDiv.appendChild(day);
   });
@@ -124,7 +135,11 @@ function clear() {
 /*-------Helpers-------*/
 
 function FtoC(temp) {
-  return Math.round(((temp - 32) * 5) / 9);
+  return toggleValue ? Math.round(((temp - 32) * 5) / 9) : temp;
+}
+
+function isC() {
+  return toggleValue ? "°C" : "°F";
 }
 
 const daysOfWeek = [

@@ -74,6 +74,11 @@ body > div:first-child {
     transform: translateY(2px);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
+
+  #toggle {
+    background-color: #0000;
+    width: 15px;
+  }
 }
 
 body > div:nth-child(2) {
@@ -111,9 +116,14 @@ h4 {
   align-items: center;
   gap: 30px;
   margin-top: 30px;
+  & > div {
+    width: 170px;
+  }
+
   #temp {
     font-size: 50px;
     font-weight: 600;
+    text-align: end;
   }
 }
 
@@ -128,6 +138,7 @@ h4 {
   display: flex;
 
   & > div {
+    width: 65px;
     margin: 5px 10px;
     display: flex;
     justify-content: center;
