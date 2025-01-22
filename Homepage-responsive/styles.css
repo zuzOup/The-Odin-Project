@@ -1,0 +1,668 @@
+@import url("https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Love+Ya+Like+A+Sister&family=Playwrite+IN:wght@100..400&display=swap");
+
+:root {
+  --color-back: #ccc070;
+  --color-back-dark: #224f40;
+  --color-offwhite: #f6f6f0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  z-index: 5;
+  font-family: "Afacad", serif;
+
+  transition: all 200ms ease-in-out;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--color-back);
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--color-back);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar {
+  width: 6px;
+  background-color: var(--color-back-dark);
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--color-back-dark);
+  border: 1px rgba(0, 0, 0, 0.5) solid;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  /* font-family: "Playwrite IN", serif; */
+  font-family: "Love Ya Like A Sister", serif;
+  font-size: 30px;
+}
+
+h3 {
+  font-family: "Love Ya Like A Sister", serif;
+  font-size: 20px;
+}
+
+p {
+  font-family: "Afacad", serif;
+  text-align: justify;
+  font-size: 18px;
+}
+
+a:active {
+  transform: translateY(2px);
+}
+
+a.green {
+  height: 20px;
+  width: 20px;
+
+  * {
+    fill: var(--color-back-dark);
+  }
+}
+
+a.green:hover {
+  * {
+    fill: var(--color-back);
+  }
+}
+
+#backing {
+  z-index: 0;
+
+  width: 0px;
+  height: 0px;
+
+  & > div {
+    width: 200vw;
+    height: 50vw;
+    background-color: var(--color-back);
+    transform: translateY(60vh) translateX(-50vw) rotate(-17deg);
+    transform-origin: center;
+
+    overflow: hidden;
+  }
+}
+
+header {
+  height: 100vh;
+  width: 100%;
+
+  background-color: var(--color-back-dark);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+    url("./img/bck.png");
+
+  background-repeat: repeat;
+  background-size: 500px;
+
+  overflow: hidden;
+  padding: 50px 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  #profile {
+    height: calc(100vh - 100px);
+    width: calc((100vw - 205px) / 3 * 2);
+    display: flex;
+    flex-direction: column;
+    z-index: 15;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 5px;
+
+    div {
+      min-height: calc(100vh - 100px);
+      height: calc(100vh - 100px);
+
+      display: flex;
+
+      overflow: hidden;
+
+      border-radius: 2px;
+    }
+
+    img {
+      transform: translateX(1px);
+      height: 100%;
+
+      object-fit: cover;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 5px;
+      border-radius: 2px;
+    }
+  }
+
+  h1 {
+    position: relative;
+
+    z-index: 15;
+    text-align: center;
+    top: -4.5vw;
+    font-family: "Playwrite IN", serif;
+    /* font-family: "Love Ya Like A Sister", serif; */
+    margin: 0;
+    text-shadow: -1px 0 rgba(0, 0, 0, 0.2), 0 1px rgba(0, 0, 0, 0.2),
+      1px 0 rgba(0, 0, 0, 0.2), 0 -1px rgba(0, 0, 0, 0.2);
+    color: var(--color-offwhite);
+    font-size: 2.3vw;
+  }
+
+  #about {
+    background-color: var(--color-offwhite);
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 3px solid var(--color-offwhite);
+    z-index: 5;
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    justify-content: space-between;
+    border-radius: 0px 2px 2px 0px;
+    .floater {
+      display: none;
+    }
+
+    #header-links {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      width: 100%;
+      height: 20px;
+
+      a {
+        margin: 0 5px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+#portfolio {
+  position: relative;
+  z-index: 50;
+  padding: 100px 50px 30px 50px;
+}
+
+main {
+  padding: 0px 50px 0px 50px;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 20;
+  min-height: 100vh;
+  height: auto;
+  height: fit-content;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 10px;
+
+  .card-container {
+    min-width: calc(100% / 3.5);
+    max-width: calc(100% / 3.1);
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    .card {
+      margin-bottom: 50px;
+
+      background-color: var(--color-offwhite);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+      overflow: hidden;
+      border-radius: 2px;
+
+      box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
+
+      img {
+        width: 100%;
+      }
+
+      .card-text {
+        padding: 20px;
+        min-height: 190px;
+
+        .card-header {
+          padding-bottom: 5px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  z-index: 30;
+  position: relative;
+  color: var(--color-offwhite);
+  background-color: var(--color-back-dark);
+  height: 100vh;
+  overflow: hidden;
+
+  padding: 100px;
+
+  display: flex;
+  justify-content: space-between;
+
+  .footer-left {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding-right: 100px;
+  }
+
+  .contacts {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+
+    svg {
+      height: 23px;
+
+      * {
+        fill: var(--color-offwhite);
+      }
+    }
+
+    a {
+      all: unset;
+      font-size: 18px;
+      color: var(--color-offwhite);
+      cursor: pointer;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--color-back);
+    }
+  }
+
+  #footer-links {
+    display: flex;
+    height: 30px;
+    gap: 20px;
+
+    a {
+      height: 30px;
+      width: 30px;
+
+      * {
+        fill: var(--color-back);
+      }
+    }
+
+    a:hover {
+      * {
+        fill: var(--color-offwhite);
+      }
+    }
+  }
+
+  .footer-right {
+    width: 60%;
+
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+
+    img {
+      max-height: 100%;
+      max-width: 100%;
+
+      box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
+      border-radius: 2px;
+    }
+  }
+}
+
+aside {
+  height: 30px;
+  background-color: var(--color-offwhite);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    color: var(--color-back-dark);
+  }
+
+  a:hover {
+    color: var(--color-back);
+  }
+}
+
+/* ---------------------------------------- LARGE SCREEN -----------------------------------------------------*/
+
+@media (min-width: 2000px) {
+  h1 {
+    font-size: 45px !important;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  h3 {
+    font-size: 30px;
+  }
+
+  p {
+    font-size: 25px;
+  }
+  #profile {
+    width: 500px !important;
+    height: 750px !important;
+    display: block !important;
+
+    div {
+      min-height: 0 !important;
+      height: 100% !important;
+      display: block !important;
+    }
+    img {
+      width: 500px;
+      height: 750px !important;
+    }
+
+    h1 {
+      top: -100px;
+    }
+  }
+
+  #about {
+    width: 1000px !important;
+  }
+
+  #header-links {
+    height: 40px !important;
+    a {
+      height: 40px;
+      width: 40px;
+    }
+  }
+
+  #portfolio {
+    width: 2000px;
+    margin: 0px auto;
+    padding-top: 0;
+  }
+
+  main {
+    margin: auto auto 100px auto;
+    width: 2000px;
+
+    a {
+      height: 30px !important;
+      width: 30px !important;
+    }
+  }
+
+  footer {
+    justify-content: center;
+    .footer-left {
+      width: 800px;
+      gap: 30px;
+
+      .contacts {
+        a {
+          font-size: 25px;
+        }
+      }
+
+      #footer-links {
+        margin-top: 30px;
+        height: 50px;
+        gap: 30px;
+
+        a {
+          height: 50px !important;
+          width: 50px !important;
+        }
+      }
+    }
+
+    .footer-right {
+      width: 1200px;
+    }
+  }
+}
+
+/* ---------------------------------------- TABLET -----------------------------------------------------*/
+
+@media (max-width: 1000px) and (orientation: landscape) and (min-width: 610px),
+  (max-width: 2000px) and (orientation: portrait) and (min-width: 610px) {
+  #backing > div {
+    height: 100vh;
+    transform: translateY(60vw) translateX(-50vw) rotate(-17deg);
+  }
+
+  header {
+    flex-direction: column;
+    height: auto;
+    align-items: flex-end;
+
+    #profile {
+      height: calc((50vw - 40px) / 2 * 2.5 - 185px);
+      width: 100%;
+      box-shadow: none;
+      align-items: flex-end;
+
+      div {
+        display: none;
+      }
+
+      h1 {
+        top: 0;
+        transform: translateX(50px) translateY(calc((50vw - 40px) / 2 - 85px));
+        font-size: 5vw;
+      }
+    }
+
+    #about {
+      width: 100%;
+      display: block;
+      z-index: 4;
+
+      .floater {
+        display: block;
+        width: calc(50vw - 140px);
+        margin-right: 20px;
+        height: 150px;
+
+        float: left;
+
+        img {
+          width: calc(50vw - 40px);
+          height: calc((50vw - 40px) / 2 * 2.5);
+
+          object-fit: cover;
+
+          transform: translateY(calc(-100% + 150px)) translateX(-100px);
+          box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
+          border-radius: 2px;
+        }
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      #header-links {
+        display: none;
+      }
+    }
+  }
+
+  main {
+    column-gap: 20px;
+    .card-container {
+      width: 48%;
+      max-width: 100%;
+    }
+    .card-header {
+      a {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .card-text {
+      min-height: 230px !important;
+    }
+  }
+
+  footer {
+    height: auto;
+    padding: 100px 50px;
+
+    .footer-left {
+      width: 60%;
+      padding-right: 50px;
+    }
+
+    .footer-right {
+      width: 40%;
+
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+/* ---------------------------------------- PHONE -----------------------------------------------------*/
+
+@media (max-width: 610px) {
+  #backing > div {
+    height: 150vh;
+    width: 1000vw;
+    transform: translateY(-15vw) translateX(-100vw) rotate(-17deg);
+  }
+
+  header {
+    display: block;
+    padding: 30px;
+    height: auto;
+
+    #profile {
+      display: block;
+      width: calc(100vw - 60px);
+      height: calc((100vw - 60px) / 2 * 3);
+
+      div {
+        display: block;
+        min-height: 0;
+        height: auto;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 10vw;
+        top: -41vw;
+        text-shadow: -1px 0 rgba(0, 0, 0, 1), 0 1px rgba(0, 0, 0, 1),
+          1px 0 rgba(0, 0, 0, 1), 0 -1px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    #about {
+      padding: 50px 0 0 0;
+      align-items: center;
+
+      #header-links {
+        align-self: center;
+        width: auto;
+        height: 35px;
+
+        a {
+          height: 35px;
+          width: 35px;
+          margin: 0 8px;
+
+          * {
+            fill: black;
+          }
+        }
+
+        a:hover {
+          * {
+            fill: var(--color-offwhite);
+          }
+        }
+      }
+    }
+  }
+
+  #portfolio {
+    padding-bottom: 0;
+    text-align: center;
+  }
+  main {
+    padding: 30px;
+
+    .card-container {
+      width: 100%;
+      max-width: 100%;
+
+      .card {
+        margin-bottom: 50px;
+        width: 100%;
+      }
+      .card-text {
+        min-height: 0 !important;
+      }
+    }
+  }
+
+  footer {
+    padding: 30px;
+    flex-direction: column;
+    height: auto;
+
+    .footer-left,
+    .footer-right {
+      width: 100%;
+      padding: 0 0 50px 0;
+
+      h2 {
+        text-align: center;
+      }
+      #footer-links {
+        padding-top: 10px;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  aside {
+    span {
+      display: none;
+    }
+  }
+}
