@@ -9,11 +9,13 @@ import Contacts from "./Components/Generator/Contacts";
 import Resume from "./Components/CV/Resume";
 import Education from "./Components/Generator/Education";
 import Work from "./Components/Generator/Work";
+import TechnicalSkills from "./Components/Generator/TechnicalSkills";
 
 function App() {
   const [info, setInfo] = useState({});
   const [eduInfo, setEduInfo] = useState({});
   const [workInfo, setWorkInfo] = useState({});
+  const [techInfo, setTechInfo] = useState({});
 
   const changeInfo = (e, key) => {
     setInfo((o) => addValueToObject(o, e, key));
@@ -24,11 +26,11 @@ function App() {
       <div className="flex min-h-screen font-sans ">
         <div className="w-6/12 min-h-full h-screen bg-sky-50 flex flex-col items-center text-center py-4 overflow-x-hidden overflow-y-auto scrollbar-column">
           {/* <Header /> */}
-          {/* <BasicInfo changeInfo={changeInfo} info={info} />
+          {/* <BasicInfo changeInfo={changeInfo} info={info} /> */}
           <Contacts changeInfo={changeInfo} info={info} />
-          <Education eduInfo={eduInfo} setEduInfo={setEduInfo} /> */}
-          {/* <Work workInfo={workInfo} setWorkInfo={setWorkInfo} /> */}
-            
+           <Education eduInfo={eduInfo} setEduInfo={setEduInfo} />
+          <Work workInfo={workInfo} setWorkInfo={setWorkInfo} />
+          <TechnicalSkills setTechInfo={setTechInfo} techInfo={techInfo} />
 
           <div>technical scill + sub scill + add/edit</div>
           <div>own skill + sub skill + add/edit</div>

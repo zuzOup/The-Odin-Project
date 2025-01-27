@@ -14,7 +14,7 @@ export const additional =
   " min-h-35 my-4 scrollbar-textarea focus-within:outline-none focus-within:ring-1 focus-within:ring-sky-800 focus-within:border-sky-800";
 
 export const labelcss =
-  "absolute left-3 top-0.5 bg-white px-1 text-gray-500 text-sm transform scale-100 transition-all peer-placeholder-shown:top-6.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-gray-400 peer-focus:top-0.5 peer-focus:scale-90 peer-focus:text-sky-800 peer-focus:italic";
+  "absolute left-3 top-0.5 bg-white px-1 text-gray-400 text-sm transform scale-100 transition-all peer-placeholder-shown:top-6.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-gray-400 peer-focus:top-0.5 peer-focus:scale-90 peer-focus:text-sky-800 peer-focus:italic";
 
 export const h2 = "text-left text-sky-800 font-semibold pl-2.5 text-xl mb-3";
 
@@ -26,10 +26,10 @@ export const iconAdd =
 export const buttonActive = "active:translate-y-0.5 group hover:cursor-pointer";
 
 export const addLabel =
-  "absolute left-3 top-1.5 bg-white px-1 text-gray-500 text-sm transform scale-100 transition-all   peer-focus-within:scale-90 peer-focus-within:text-sky-800 peer-focus-within:italic";
+  "absolute left-3 top-1.5 bg-white px-1 text-gray-400 text-sm transform scale-100 transition-all   peer-focus-within:scale-90 peer-focus-within:text-sky-800 peer-focus-within:italic";
 
 export const addInput =
-  "peer w-3/4 border border-gray-300 rounded-lg px-3 pt-2 pb-2 mb-1 mt-4 text-sm focus:outline-none focus:ring-1 focus:ring-sky-800 focus:border-sky-800 focus:bg-sky-50 justify-self-start placeholder:text-xs";
+  "peer w-3/4 border border-gray-300 rounded-lg px-3 pt-2 pb-2 mb-1 mt-4 text-sm focus:outline-none focus:ring-1 focus:ring-sky-800 focus:border-sky-800 focus:bg-sky-50 justify-self-start placeholder:text-xs placeholder:text-gray-400";
 
 export const options =
   "flex justify-between w-full border-2 border-lime-100 rounded-lg px-3  py-1.5 my-3 bg-lime-50 bg-opacity-50 text-sm";
@@ -41,4 +41,5 @@ export const addButtonInnerIcon = "size-4 ml-2 mr-1 text-sky-800 hover:text-lime
 
 export const requiredcss = " after:content-['*'] after:text-red-500 after:ml-1 ";
 
-export const warningcss = "relative h-0 text-[0.65rem] -top-19 text-end  text-red-500 italic";
+export const warningcss =
+  "relative h-0 text-[0.65rem] -top-19 text-end  text-red-500 italic";

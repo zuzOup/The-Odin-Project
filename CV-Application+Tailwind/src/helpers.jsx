@@ -12,11 +12,27 @@ export function addObjectToObject(object, value, key) {
   return obj;
 }
 
+export function addArrayToObject(object, value, key) {
+  const obj = JSON.parse(JSON.stringify(object));
+  if (obj[key] && obj[key].length > 0) {
+    const arr = [...obj[key], ...value];
+    obj[key] = arr;
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+
 export function addArrayItemToObjectArray(object, value, key) {
   const obj = JSON.parse(JSON.stringify(object));
   const arr = [...obj[key], value];
   obj[key] = arr;
   return obj;
+}
+
+export function addItemToArray(array, value) {
+  const arr = [...array, value];
+  return arr;
 }
 
 export function removeArrayItemToObjectArray(object, i, key) {
@@ -25,6 +41,12 @@ export function removeArrayItemToObjectArray(object, i, key) {
   arr.splice(i, 1);
   obj[key] = arr;
   return obj;
+}
+
+export function removeItemFromArray(array, i) {
+  const arr = [...array];
+  arr.splice(i, 1);
+  return arr;
 }
 
 export function deleteKeyFromObject(object, key) {
