@@ -34,6 +34,7 @@ function BasicInfo({ info, changeInfo }) {
         label="Summary about yourself"
         dataLabel="summary"
         changeInfo={changeInfo}
+        value={info.summary}
         required={true}
       />
     </div>

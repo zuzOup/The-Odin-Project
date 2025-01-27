@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { labelcss, requiredcss, textarea } from "./css-helpers";
 
-function TextArea({ label = "label", dataLabel, changeInfo, required = false }) {
+function TextArea({ label = "label", dataLabel, changeInfo, required = false, value }) {
   const css = required ? labelcss + requiredcss : labelcss;
 
   return (
@@ -13,6 +13,7 @@ function TextArea({ label = "label", dataLabel, changeInfo, required = false }) 
         onChange={(e) => {
           changeInfo(e, dataLabel);
         }}
+        value={value || ""}
       />
       <label className={css}>{label}</label>
     </div>
@@ -26,4 +27,5 @@ TextArea.propTypes = {
   dataLabel: PropTypes.string,
   changeInfo: PropTypes.func,
   required: PropTypes.bool,
+  value: PropTypes.string,
 };
