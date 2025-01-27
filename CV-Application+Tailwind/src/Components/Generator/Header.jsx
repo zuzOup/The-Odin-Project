@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 
 import { buttonSmall, container } from "../css-helpers";
 
-function log() {
-  console.log(1);
+function printPDF() {
+  console.log("PDF");
 }
 
-function Header() {
+function Header({ dataLoad }) {
   return (
     <div className={`${container} flex-row justify-evenly `}>
       <div>
@@ -23,10 +23,10 @@ function Header() {
         </div>
       </div>
       <div className="flex flex-col h-full justify-between">
-        <button className={buttonSmall} onClick={log}>
-          Load data
+        <button className={buttonSmall} onClick={dataLoad}>
+          Load mock data
         </button>
-        <button className={buttonSmall} onClick={log}>
+        <button className={buttonSmall} onClick={printPDF}>
           Download PDF
         </button>
       </div>
@@ -36,4 +36,4 @@ function Header() {
 
 export default Header;
 
-Header.propTypes = { setData: PropTypes.func };
+Header.propTypes = { dataLoad: PropTypes.func };
