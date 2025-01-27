@@ -1,10 +1,15 @@
 import PropTypes from "prop-types";
+
 import { useState } from "react";
-import { buttonSmall, container, h2 } from "../css-helpers";
+
+import { addArrayToObject, addItemToArray, removeItemFromArray } from "../../helpers";
+
+import { buttonContainer, buttonSmall, container } from "../css-helpers";
+
+import H2 from "../H2";
+import ListSkills from "../ListSkills";
 import Input from "../Input";
 import Aditional from "../Aditional";
-import { addArrayToObject, addItemToArray, removeItemFromArray } from "../../helpers";
-import ListSkills from "./ListSkills";
 
 function SoftSkills({ softInfo, setSoftInfo }) {
   const [category, setCategory] = useState("");
@@ -47,7 +52,7 @@ function SoftSkills({ softInfo, setSoftInfo }) {
 
   return (
     <div className={container}>
-      <h2 className={h2}>Additional Skills</h2>
+      <H2 label="Additional Skills" />
       <div>
         {Object.entries(softInfo).map((x, i) => {
           return (
@@ -81,7 +86,7 @@ function SoftSkills({ softInfo, setSoftInfo }) {
         setInputValue={setInputValue}
         inputValue={inputValue}
       />
-      <button className={`${buttonSmall} w-full`} onClick={addSkill}>
+      <button className={`${buttonSmall} ${buttonContainer}`} onClick={addSkill}>
         Submit Skill / Add Different Skill
       </button>
     </div>

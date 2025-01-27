@@ -1,14 +1,19 @@
 import PropTypes from "prop-types";
-import { buttonSmall, container, h2 } from "../css-helpers";
-import List from "./List";
-import Input from "../Input";
+
 import { useReducer, useState } from "react";
+
 import {
   addArrayItemToObjectArray,
   addObjectToObject,
   addValueToObject,
   removeArrayItemToObjectArray,
 } from "../../helpers";
+
+import { buttonContainer, buttonSmall, container } from "../css-helpers";
+
+import H2 from "../H2";
+import List from "../List";
+import Input from "../Input";
 import Toggle from "../Toggle";
 import Aditional from "../Aditional";
 
@@ -140,7 +145,7 @@ function Work({ workInfo, setWorkInfo }) {
 
   return (
     <div className={container}>
-      <h2 className={h2}>Work Experience</h2>
+      <H2 label="Work Experience" />
       <div>
         {Object.entries(workInfo).map((x) => {
           return (
@@ -152,6 +157,7 @@ function Work({ workInfo, setWorkInfo }) {
               setList={setWork}
               setListInfo={setWorkInfo}
               setNow={setNow}
+              now={now}
               setToggle={setToggle}
             />
           );
@@ -203,7 +209,7 @@ function Work({ workInfo, setWorkInfo }) {
         setInputValue={setInputValue}
         inputValue={inputValue}
       />
-      <button className={`${buttonSmall} w-full`} onClick={addWork}>
+      <button className={`${buttonSmall} ${buttonContainer}`} onClick={addWork}>
         Submit Experience / Add Different Experience
       </button>
     </div>

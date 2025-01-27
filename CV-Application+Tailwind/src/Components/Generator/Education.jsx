@@ -8,11 +8,13 @@ import {
   addValueToObject,
   removeArrayItemToObjectArray,
 } from "../../helpers";
-import { buttonSmall, container, h2 } from "../css-helpers";
 
+import { buttonContainer, buttonSmall, container } from "../css-helpers";
+
+import H2 from "../H2";
+import List from "../List";
 import Input from "../Input";
 import Toggle from "../Toggle";
-import List from "./List";
 import Aditional from "../Aditional";
 
 const initialState = {
@@ -124,7 +126,7 @@ function Education({ eduInfo, setEduInfo }) {
 
   return (
     <div className={container}>
-      <h2 className={h2}>Education</h2>
+      <H2 label="Education" />
       <div>
         {Object.entries(eduInfo).map((x) => {
           return (
@@ -135,6 +137,7 @@ function Education({ eduInfo, setEduInfo }) {
               data={x[1]}
               setList={setEdu}
               setListInfo={setEduInfo}
+              now={now}
               setNow={setNow}
               setToggle={setToggle}
             />
@@ -185,7 +188,7 @@ function Education({ eduInfo, setEduInfo }) {
         setInputValue={setInputValue}
         inputValue={inputValue}
       />
-      <button className={`${buttonSmall}  w-full`} onClick={addEdu}>
+      <button className={`${buttonSmall} ${buttonContainer}`} onClick={addEdu}>
         Submit Education / Add Different Education
       </button>
     </div>

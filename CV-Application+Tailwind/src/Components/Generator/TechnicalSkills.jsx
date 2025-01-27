@@ -1,10 +1,14 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-import { buttonSmall, container, h2 } from "../css-helpers";
+
+import { addArrayToObject, addItemToArray, removeItemFromArray } from "../../helpers";
+
+import { buttonContainer, buttonSmall, container } from "../css-helpers";
+
+import H2 from "../H2";
+import ListSkills from "../ListSkills";
 import Input from "../Input";
 import Aditional from "../Aditional";
-import { addArrayToObject, addItemToArray, removeItemFromArray } from "../../helpers";
-import ListSkills from "./ListSkills";
 
 function TechnicalSkills({ techInfo, setTechInfo }) {
   const [category, setCategory] = useState("");
@@ -47,7 +51,7 @@ function TechnicalSkills({ techInfo, setTechInfo }) {
 
   return (
     <div className={container}>
-      <h2 className={h2}>Technical Skills</h2>
+      <H2 label="Technical Skills" />
       <div>
         {Object.entries(techInfo).map((x, i) => {
           return (
@@ -79,7 +83,7 @@ function TechnicalSkills({ techInfo, setTechInfo }) {
         setInputValue={setInputValue}
         inputValue={inputValue}
       />
-      <button className={`${buttonSmall} w-full`} onClick={addSkill}>
+      <button className={`${buttonSmall} ${buttonContainer}`} onClick={addSkill}>
         Submit Skill / Add Different Skill
       </button>
     </div>

@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 
-import { container, h2 } from "../css-helpers";
+import { container } from "../css-helpers";
 
+import H2 from "../H2";
 import Input from "../Input";
 import TextArea from "../TextArea";
 
@@ -14,7 +15,7 @@ const inputs = {
 function BasicInfo({ info, changeInfo }) {
   return (
     <div className={container}>
-      <h2 className={h2}>Basic Info</h2>
+      <H2 label="Basic Info" />
 
       {Object.entries(inputs).map((x) => {
         return (
@@ -28,6 +29,7 @@ function BasicInfo({ info, changeInfo }) {
           />
         );
       })}
+
       <TextArea
         label="Summary about yourself"
         dataLabel="summary"
@@ -40,4 +42,4 @@ function BasicInfo({ info, changeInfo }) {
 
 export default BasicInfo;
 
-BasicInfo.propTypes = { changeInfo: PropTypes.func, info: PropTypes.object };
+BasicInfo.propTypes = { info: PropTypes.object, changeInfo: PropTypes.func };

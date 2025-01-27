@@ -1,13 +1,14 @@
 import PropTypes from "prop-types";
 
-import { container, h2 } from "../css-helpers";
+import { container } from "../css-helpers";
 
+import H2 from "../H2";
 import Input from "../Input";
 
 function Contacts({ info, changeInfo }) {
   return (
     <div className={container}>
-      <h2 className={h2}>Contacts</h2>
+      <H2 label="Contacts" />
 
       <Input
         label="Phone Number"
@@ -38,4 +39,4 @@ function Contacts({ info, changeInfo }) {
 
 export default Contacts;
 
-Contacts.propTypes = { changeInfo: PropTypes.func, info: PropTypes.object };
+Contacts.propTypes = { info: PropTypes.object, changeInfo: PropTypes.func };

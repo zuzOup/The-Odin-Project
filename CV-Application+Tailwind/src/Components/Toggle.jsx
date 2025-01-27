@@ -1,7 +1,5 @@
 import PropTypes from "prop-types";
 
-// import { input, labelcss } from "./css-helpers";
-
 function Toggle({ label = "label", toggleHandle, toggle }) {
   return (
     <div className="flex items-center space-x-3  px-2 pb-1 -translate-y-2 self-end">
@@ -26,6 +24,6 @@ export default Toggle;
 
 Toggle.propTypes = {
   label: PropTypes.string,
-  toggle: PropTypes.bool,
   toggleHandle: PropTypes.func,
+  toggle: PropTypes.bool,
 };

@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
-import { buttonActive, icon, options } from "../css-helpers";
-import { deleteKeyFromObject, yyyy_mmToyy } from "../../helpers";
+import { buttonActive, icon, options } from "./css-helpers";
+import { deleteKeyFromObject, yyyy_mmToyy } from "../helpers";
 
-function List({ id, title, data, setNow, setList, setListInfo, setToggle }) {
+function List({ id, title, data, now, setNow, setList, setListInfo, setToggle }) {
   const edit = (e) => {
     setNow(id);
     setList(data);
@@ -16,8 +16,14 @@ function List({ id, title, data, setNow, setList, setListInfo, setToggle }) {
   const deleteItem = (e) => {
     setListInfo((o) => deleteKeyFromObject(o, id));
 
-    setNow(`${Date.now()}`);
-    setList({ list: [] });
+    console.log(id);
+    console.log(now);
+
+    if (id === now) {
+      setList({ list: [] });
+      setNow(`${Date.now()}`);
+    }
+
     e.currentTarget.blur();
   };
 
@@ -45,6 +51,7 @@ export default List;
 
 List.propTypes = {
   id: PropTypes.string,
+  now: PropTypes.string,
   title: PropTypes.string,
   data: PropTypes.object,
   setNow: PropTypes.func,

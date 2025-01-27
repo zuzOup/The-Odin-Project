@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
-import { buttonActive, icon, options } from "../css-helpers";
-import { deleteKeyFromObject } from "../../helpers";
+import { buttonActive, icon, options } from "./css-helpers";
+import { deleteKeyFromObject } from "../helpers";
 
 function ListSkills({ category, title, list, setList, setCategory, setInfo }) {
   const edit = (e) => {

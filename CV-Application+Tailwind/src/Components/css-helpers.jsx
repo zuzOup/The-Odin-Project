@@ -4,6 +4,8 @@ export const container =
 export const buttonSmall =
   "text-gray-900 bg-gradient-to-br border-gray-300 shadow-md from-sky-100 to-lime-100 hover:bg-gradient-to-l hover:from-sky-100 hover:to-lime-100 focus:ring-2 focus:outline-none focus:ring-lime-200  active:translate-y-1 transition duration-150 ease-in-out font-medium rounded-lg text-sm px-3 py-2 text-center hover:cursor-pointer";
 
+export const buttonContainer = " w-full mt-3";
+
 export const input =
   "peer w-full border border-gray-300 rounded-lg px-3 pt-4 pb-2 my-3 focus:outline-none focus:ring-1 focus:ring-sky-800 focus:border-sky-800";
 
@@ -43,3 +45,6 @@ export const requiredcss = " after:content-['*'] after:text-red-500 after:ml-1 "
 
 export const warningcss =
   "relative h-0 text-[0.65rem] -top-19 text-end  text-red-500 italic";
+
+export const hr =
+  "h-0.5 mb-1 mx-2 bg-sky-800 border-0 rounded-full w-1/4   -translate-y-2 ";
