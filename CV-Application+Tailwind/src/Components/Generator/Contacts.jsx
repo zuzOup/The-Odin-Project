@@ -15,6 +15,7 @@ function Contacts({ info, changeInfo }) {
         changeInfo={changeInfo}
         value={info.tel}
         type="tel"
+        required={true}
       />
       <Input
         label="E-mail"
@@ -22,6 +23,7 @@ function Contacts({ info, changeInfo }) {
         changeInfo={changeInfo}
         value={info.email}
         type="email"
+        required={true}
       />
       <Input
         label="Location"

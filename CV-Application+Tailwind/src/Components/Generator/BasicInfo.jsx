@@ -24,6 +24,7 @@ function BasicInfo({ info, changeInfo }) {
             dataLabel={x[0]}
             changeInfo={changeInfo}
             value={info[x[0]]}
+            required={true}
           />
         );
       })}
@@ -31,6 +32,7 @@ function BasicInfo({ info, changeInfo }) {
         label="Summary about yourself"
         dataLabel="summary"
         changeInfo={changeInfo}
+        required={true}
       />
     </div>
   );

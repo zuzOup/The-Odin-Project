@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
-import { labelcss, textarea } from "./css-helpers";
+import { labelcss, requiredcss, textarea } from "./css-helpers";
 
-function TextArea({ label = "label", dataLabel, changeInfo }) {
+function TextArea({ label = "label", dataLabel, changeInfo, required = false }) {
+  const css = required ? labelcss + requiredcss : labelcss;
+
   return (
     <div className="relative w-full">
       <textarea
@@ -12,7 +14,7 @@ function TextArea({ label = "label", dataLabel, changeInfo }) {
           changeInfo(e, dataLabel);
         }}
       />
-      <label className={labelcss}>{label}</label>
+      <label className={css}>{label}</label>
     </div>
   );
 }
@@ -23,4 +25,5 @@ TextArea.propTypes = {
   label: PropTypes.string,
   dataLabel: PropTypes.string,
   changeInfo: PropTypes.func,
+  required: PropTypes.bool,
 };
