@@ -153,11 +153,13 @@ function Work({ workInfo, setWorkInfo }) {
               key={x[0]}
               id={x[0]}
               title={x[1].title}
+              start={x[1].start}
+              end={x[1].end}
               data={x[1]}
               setList={setWork}
               setListInfo={setWorkInfo}
               setNow={setNow}
-              now={now}
+              now={`${now}`}
               setToggle={setToggle}
             />
           );
@@ -200,9 +202,9 @@ function Work({ workInfo, setWorkInfo }) {
           warning={state.warEnd}
         />
       )}
-      <Toggle label="Ongoing?" toggleHandle={toggleHandle} toggle={toggle} />
+      <Toggle label="Present?" toggleHandle={toggleHandle} toggle={toggle} />
       <Aditional
-        label="Additional info (ex. awards, courses, thesis project...)"
+        label="Additional info (ex. duties,responsibilities...)"
         list={work.list}
         setList={setList}
         removeFromList={removeFromList}

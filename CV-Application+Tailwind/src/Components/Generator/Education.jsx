@@ -19,7 +19,7 @@ import Aditional from "../Aditional";
 
 const initialState = {
   warUni: false,
-  warStart: false,
+
   warEnd: false,
 };
 
@@ -27,8 +27,7 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "SET_WAR_UNI":
       return { ...state, warUni: action.payload };
-    case "SET_WAR_START":
-      return { ...state, warStart: action.payload };
+
     case "SET_WAR_END":
       return { ...state, warEnd: action.payload };
 
@@ -60,13 +59,6 @@ function Education({ eduInfo, setEduInfo }) {
     setEdu((o) => addValueToObject(o, e, key));
   };
 
-  const changeStart = (e, key) => {
-    if (state.warStart !== false && e.currentTarget.value.length > 0) {
-      dispatch({ type: "SET_WAR_START", payload: false });
-    }
-    setEdu((o) => addValueToObject(o, e, key));
-  };
-
   const changeEnd = (e, key) => {
     if (state.warEnd !== false && e.currentTarget.value.length > 0) {
       dispatch({ type: "SET_WAR_END", payload: false });
@@ -91,19 +83,15 @@ function Education({ eduInfo, setEduInfo }) {
     const obj = JSON.parse(JSON.stringify(edu));
 
     if (toggle === true) {
-      obj.end = "Present";
+      obj.end = "Ongoing";
     }
 
-    if (!obj.uni || !obj.start || !obj.end) {
+    if (!obj.uni || !obj.end) {
       if (!obj.uni) {
         dispatch({
           type: "SET_WAR_UNI",
           payload: "Please provide the name of the institution.",
         });
-      }
-
-      if (!obj.start) {
-        dispatch({ type: "SET_WAR_START", payload: "Please provide the starting date." });
       }
 
       if (!obj.end) {
@@ -134,10 +122,11 @@ function Education({ eduInfo, setEduInfo }) {
               key={x[0]}
               id={x[0]}
               title={x[1].uni}
+              end={x[1].end}
               data={x[1]}
               setList={setEdu}
               setListInfo={setEduInfo}
-              now={now}
+              now={`${now}`}
               setNow={setNow}
               setToggle={setToggle}
             />
@@ -158,15 +147,6 @@ function Education({ eduInfo, setEduInfo }) {
         dataLabel="degree"
         changeInfo={changeEdu}
         value={edu.degree}
-      />
-      <Input
-        label="Starting Year:"
-        dataLabel="start"
-        changeInfo={changeStart}
-        value={edu.start}
-        type="month"
-        required={true}
-        warning={state.warStart}
       />
       {!toggle && (
         <Input
