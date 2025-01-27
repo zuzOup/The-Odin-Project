@@ -4,7 +4,7 @@ import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { buttonActive, icon, options } from "../css-helpers";
 import { deleteKeyFromObject } from "../../helpers";
 
-function ListSkills({ category, title, list, setList, setCategory, setTechInfo }) {
+function ListSkills({ category, title, list, setList, setCategory, setInfo }) {
   const edit = (e) => {
     setCategory(title);
     setList(list);
@@ -17,7 +17,7 @@ function ListSkills({ category, title, list, setList, setCategory, setTechInfo }
       setList([]);
     }
 
-    setTechInfo((o) => deleteKeyFromObject(o, title));
+    setInfo((o) => deleteKeyFromObject(o, title));
 
     e.currentTarget.blur();
   };
@@ -47,5 +47,5 @@ ListSkills.propTypes = {
   list: PropTypes.array,
   setList: PropTypes.func,
   setCategory: PropTypes.func,
-  setTechInfo: PropTypes.func,
+  setInfo: PropTypes.func,
 };

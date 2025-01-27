@@ -6,7 +6,7 @@ import Aditional from "../Aditional";
 import { addArrayToObject, addItemToArray, removeItemFromArray } from "../../helpers";
 import ListSkills from "./ListSkills";
 
-function TechnicalSkills({ techInfo, setTechInfo }) {
+function SoftSkills({ softInfo, setSoftInfo }) {
   const [category, setCategory] = useState("");
   const [list, setList] = useState([]);
   const [inputValue, setInputValue] = useState("");
@@ -39,7 +39,7 @@ function TechnicalSkills({ techInfo, setTechInfo }) {
       return;
     }
 
-    setTechInfo((o) => addArrayToObject(o, arr, category));
+    setSoftInfo((o) => addArrayToObject(o, arr, category));
     setCategory("");
     setList([]);
     setInputValue("");
@@ -47,9 +47,9 @@ function TechnicalSkills({ techInfo, setTechInfo }) {
 
   return (
     <div className={container}>
-      <h2 className={h2}>Technical Skills</h2>
+      <h2 className={h2}>Additional Skills</h2>
       <div>
-        {Object.entries(techInfo).map((x, i) => {
+        {Object.entries(softInfo).map((x, i) => {
           return (
             <ListSkills
               key={i}
@@ -58,13 +58,13 @@ function TechnicalSkills({ techInfo, setTechInfo }) {
               list={x[1]}
               setCategory={setCategory}
               setList={setList}
-              setInfo={setTechInfo}
+              setInfo={setSoftInfo}
             />
           );
         })}
       </div>
       <Input
-        label="Skill category (ex. design, front-end...):"
+        label="Skill category (ex. languages, awards, soft skills...):"
         dataLabel="category"
         changeInfo={changeCategory}
         value={category}
@@ -72,7 +72,9 @@ function TechnicalSkills({ techInfo, setTechInfo }) {
         warning={warning}
       />
       <Aditional
-        label={`Add skill in ${category || "category"} (ex. software, prog. language...)`}
+        label={`Add skill in ${
+          category || "category"
+        } (ex. languages, awards name/year...)`}
         list={list}
         setList={setListHandle}
         removeFromList={removeFromList}
@@ -86,6 +88,6 @@ function TechnicalSkills({ techInfo, setTechInfo }) {
   );
 }
 
-export default TechnicalSkills;
+export default SoftSkills;
 
-TechnicalSkills.propTypes = { techInfo: PropTypes.object, setTechInfo: PropTypes.func };
+SoftSkills.propTypes = { softInfo: PropTypes.object, setSoftInfo: PropTypes.func };
