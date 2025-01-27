@@ -48,3 +48,5 @@ export const warningcss =
 
 export const hr =
   "h-0.5 mb-1 mx-2 bg-sky-800 border-0 rounded-full w-1/4   -translate-y-2 ";
+
+  
