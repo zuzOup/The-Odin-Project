@@ -131,8 +131,6 @@ function Work({ workInfo, setWorkInfo }) {
       return;
     }
 
-    console.log(obj);
-
     setWorkInfo((o) => addObjectToObject(o, obj, now));
     setWork({ list: [] });
     setToggle(false);
@@ -158,57 +156,56 @@ function Work({ workInfo, setWorkInfo }) {
             />
           );
         })}
+      </div>
 
+      <Input
+        label="Title/Position:"
+        dataLabel="title"
+        changeInfo={changeTitle}
+        value={work.title}
+        required={true}
+        warning={state.warTitle}
+      />
+      <Input
+        label="Workplace/Company/Organization:"
+        dataLabel="company"
+        changeInfo={changeCompany}
+        value={work.company}
+        required={true}
+        warning={state.warCompany}
+      />
+      <Input
+        label="Starting Year:"
+        dataLabel="start"
+        changeInfo={changeStart}
+        value={work.start}
+        type="month"
+        required={true}
+        warning={state.warStart}
+      />
+      {!toggle && (
         <Input
-          label="Title/Position:"
-          dataLabel="title"
-          changeInfo={changeTitle}
-          value={work.title}
-          required={true}
-          warning={state.warTitle}
-        />
-        <Input
-          label="Workplace/Company/Organization:"
-          dataLabel="company"
-          changeInfo={changeCompany}
-          value={work.company}
-          required={true}
-          warning={state.warCompany}
-        />
-        <Input
-          label="Starting Year:"
-          dataLabel="start"
-          changeInfo={changeStart}
-          value={work.start}
+          label="Ending Year:"
+          dataLabel="end"
+          changeInfo={changeEnd}
+          value={work.end}
           type="month"
           required={true}
-          warning={state.warStart}
+          warning={state.warEnd}
         />
-        {!toggle && (
-          <Input
-            label="Ending Year:"
-            dataLabel="end"
-            changeInfo={changeEnd}
-            value={work.end}
-            type="month"
-            required={true}
-            warning={state.warEnd}
-          />
-        )}
-        <Toggle label="Ongoing?" toggleHandle={toggleHandle} toggle={toggle} />
-
-        <Aditional
-          label="Additional info (ex. awards, courses, thesis project...)"
-          list={work.list}
-          setList={setList}
-          removeFromList={removeFromList}
-          setInputValue={setInputValue}
-          inputValue={inputValue}
-        />
-        <button className={`${buttonSmall} w-full`} onClick={addWork}>
-          Submit Education / Add Different Education
-        </button>
-      </div>
+      )}
+      <Toggle label="Ongoing?" toggleHandle={toggleHandle} toggle={toggle} />
+      <Aditional
+        label="Additional info (ex. awards, courses, thesis project...)"
+        list={work.list}
+        setList={setList}
+        removeFromList={removeFromList}
+        setInputValue={setInputValue}
+        inputValue={inputValue}
+      />
+      <button className={`${buttonSmall} w-full`} onClick={addWork}>
+        Submit Experience / Add Different Experience
+      </button>
     </div>
   );
 }

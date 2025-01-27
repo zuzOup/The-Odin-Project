@@ -165,7 +165,6 @@ function Education({ eduInfo, setEduInfo }) {
         required={true}
         warning={state.warStart}
       />
-
       {!toggle && (
         <Input
           label="Ending Year:"
