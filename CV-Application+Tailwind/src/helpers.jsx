@@ -59,3 +59,15 @@ export function yyyy_mmToyy(yyyy_mm) {
   if (yyyy_mm && yyyy_mm.includes("-")) return yyyy_mm.split("-")[0].slice(-2);
   return yyyy_mm;
 }
+
+export function yyyy_mmToMMMyyyy(yyyy_mm) {
+  if (yyyy_mm && yyyy_mm.includes("-")) {
+    const date = new Date(yyyy_mm);
+    const formattedDate = date.toLocaleString("en-US", {
+      month: "short",
+      year: "numeric",
+    });
+    return formattedDate;
+  }
+  return yyyy_mm;
+}
