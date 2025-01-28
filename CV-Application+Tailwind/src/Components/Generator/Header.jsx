@@ -21,12 +21,26 @@ function Header({ dataLoad, dataDelete, info }) {
     html2canvas(clone)
       .then((canvas) => {
         const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF("p", "mm", "letter");
+        const pdf = new jsPDF("p", "px", "letter");
 
         const pdfWidth = pdf.internal.pageSize.getWidth();
         const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
 
         pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+
+        if (pdfHeight > pdf.internal.pageSize.getHeight()) {
+          const pages = Math.ceil(pdfHeight / pdf.internal.pageSize.getHeight());
+
+          let position = pdf.internal.pageSize.getHeight();
+
+          for (let i = 1; i < pages; i++) {
+            pdf.addPage();
+            pdf.addImage(imgData, "PNG", 0, -position, pdfWidth, pdfHeight);
+
+            position = position + pdf.internal.pageSize.getHeight();
+          }
+        }
+
         pdf.save(`CV - ${info.firstName} ${info.secondName}.pdf`);
       })
       .then(() => {
@@ -70,5 +84,5 @@ Header.propTypes = {
   dataLoad: PropTypes.func,
   dataDelete: PropTypes.func,
   printPDF: PropTypes.func,
-  info: PropTypes.obj,
+  info: PropTypes.object,
 };
