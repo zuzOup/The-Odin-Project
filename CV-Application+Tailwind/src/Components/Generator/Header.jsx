@@ -4,14 +4,21 @@ import html2canvas from "html2canvas-pro";
 import { jsPDF } from "jspdf";
 
 import { buttonSmall, container } from "../css-helpers";
+import { useState } from "react";
+import Loader from "../Loader";
 
 function Header({ dataLoad, dataDelete, info }) {
-  const printPDF = () => {
+  const [loader, setLoader] = useState(false);
+
+  const printPDF = (e) => {
+    e.currentTarget.blur()
     const resume = document.getElementById("resume");
 
     if (!resume) {
       return;
     }
+
+    setLoader(true);
 
     const clone = resume.cloneNode(true);
     document.body.appendChild(clone);
@@ -47,36 +54,40 @@ function Header({ dataLoad, dataDelete, info }) {
       })
       .then(() => {
         document.body.removeChild(clone);
+        setLoader(false);
       });
   };
 
   return (
-    <header className={`${container} flex-row justify-evenly items-center`}>
-      <div>
-        <h1 className="text-6xl text-sky-800 font-bold">CV Generator</h1>
-        <h2 className="text-sm pt-1 italic text-sky-800">
-          by&nbsp;
-          <a
-            href="https://github.com/zuzOup/"
-            target="_blank"
-            className="font-medium hover:text-lime-400"
-          >
-            Zuzana O.
-          </a>
-        </h2>
-      </div>
-      <div className="flex flex-col h-full justify-between">
-        <button className={buttonSmall} onClick={dataLoad}>
-          Load mock data
-        </button>
-        <button className={buttonSmall} onClick={dataDelete}>
-          Delete all
-        </button>
-        <button className={buttonSmall} onClick={printPDF}>
-          Download PDF
-        </button>
-      </div>
-    </header>
+    <>
+      {loader && <Loader />}
+      <header className={`${container} flex-row justify-evenly items-center`}>
+        <div>
+          <h1 className="text-6xl text-sky-800 font-bold">CV Generator</h1>
+          <h2 className="text-sm pt-1 italic text-sky-800">
+            by&nbsp;
+            <a
+              href="https://github.com/zuzOup/"
+              target="_blank"
+              className="font-medium hover:text-lime-400"
+            >
+              Zuzana O.
+            </a>
+          </h2>
+        </div>
+        <div className="flex flex-col h-full justify-between">
+          <button className={buttonSmall} onClick={dataLoad}>
+            Load mock data
+          </button>
+          <button className={buttonSmall} onClick={dataDelete}>
+            Delete all
+          </button>
+          <button className={buttonSmall} onClick={printPDF}>
+            Download PDF
+          </button>
+        </div>
+      </header>
+    </>
   );
 }
 
