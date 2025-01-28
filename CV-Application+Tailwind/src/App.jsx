@@ -21,7 +21,7 @@ function App() {
   const [softInfo, setSoftInfo] = useState({});
 
   useEffect(() => {
-    dataLoad();
+    // dataLoad();
   }, []);
 
   const changeInfo = (e, key) => {
@@ -36,29 +36,34 @@ function App() {
     setSoftInfo(data.soft);
   };
 
+  const dataDelete = () => {
+    setInfo({});
+    setEduInfo({});
+    setWorkInfo({});
+    setTechInfo({});
+    setSoftInfo({});
+  };
+
   return (
-    <>
-      <div className="flex min-h-screen font-sans ">
-        <div className="w-6/12 min-h-full h-screen bg-sky-50 flex flex-col items-center text-center py-4 overflow-x-hidden overflow-y-auto scrollbar-column">
-          <Header dataLoad={dataLoad} />
-          <BasicInfo changeInfo={changeInfo} info={info} />
-          <Contacts changeInfo={changeInfo} info={info} />
-          <Education eduInfo={eduInfo} setEduInfo={setEduInfo} />
-          <Work workInfo={workInfo} setWorkInfo={setWorkInfo} />
-          <TechnicalSkills setTechInfo={setTechInfo} techInfo={techInfo} />
-          <SoftSkills setSoftInfo={setSoftInfo} softInfo={softInfo} />
-        </div>
-        <div className="w-6/12 min-h-full min-w-[510px]  h-screen bg-gray-200 text-center flex justify-center items-center overflow-x-hidden overflow-y-auto scrollbar-column">
-          <Resume
-            info={info}
-            eduInfo={eduInfo}
-            workInfo={workInfo}
-            techInfo={techInfo}
-            softInfo={softInfo}
-          />
-        </div>
+    <div className="flex min-h-screen font-sans ">
+      <div className="w-1/2 min-h-full h-screen bg-sky-50 flex flex-col items-center text-center py-4 overflow-x-hidden overflow-y-auto scrollbar-column">
+        <Header dataLoad={dataLoad} dataDelete={dataDelete} />
+        <BasicInfo changeInfo={changeInfo} info={info} />
+        <Contacts changeInfo={changeInfo} info={info} />
+        <Education eduInfo={eduInfo} setEduInfo={setEduInfo} />
+        <Work workInfo={workInfo} setWorkInfo={setWorkInfo} />
+        <TechnicalSkills setTechInfo={setTechInfo} techInfo={techInfo} />
+        <SoftSkills setSoftInfo={setSoftInfo} softInfo={softInfo} />
       </div>
-    </>
+
+      <Resume
+        info={info}
+        eduInfo={eduInfo}
+        workInfo={workInfo}
+        techInfo={techInfo}
+        softInfo={softInfo}
+      />
+    </div>
   );
 }
 

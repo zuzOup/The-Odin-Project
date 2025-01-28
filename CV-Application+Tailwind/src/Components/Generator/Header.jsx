@@ -6,9 +6,9 @@ function printPDF() {
   console.log("PDF");
 }
 
-function Header({ dataLoad }) {
+function Header({ dataLoad, dataDelete }) {
   return (
-    <div className={`${container} flex-row justify-evenly `}>
+    <div className={`${container} flex-row justify-evenly items-center`}>
       <div>
         <h1 className="text-6xl text-sky-800 font-bold">CV Generator</h1>
         <div className="text-sm pt-1 italic text-sky-800">
@@ -26,6 +26,9 @@ function Header({ dataLoad }) {
         <button className={buttonSmall} onClick={dataLoad}>
           Load mock data
         </button>
+        <button className={buttonSmall} onClick={dataDelete}>
+          Delete all
+        </button>
         <button className={buttonSmall} onClick={printPDF}>
           Download PDF
         </button>
@@ -36,4 +39,4 @@ function Header({ dataLoad }) {
 
 export default Header;
 
-Header.propTypes = { dataLoad: PropTypes.func };
+Header.propTypes = { dataLoad: PropTypes.func, dataDelete: PropTypes.func };
