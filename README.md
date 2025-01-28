@@ -13,4 +13,5 @@ Projects I have completed as part of the [Full Stack Javascript Path](https://ww
 - **[Todo List](https://zuzoup.github.io/The-Odin-Project/Todo-List/dist/)** &nbsp;&nbsp;&nbsp;&nbsp; App for creating project/ to-do's lists. JS DOM manipulation and Webpack exercise
 - **[Weather App](https://zuzoup.github.io/The-Odin-Project/Weather-App/)** &nbsp;&nbsp;&nbsp;&nbsp; API/async await exercise. Visual Crossing API
 - **[Static/Responsive homepage](https://zuzoup.github.io/The-Odin-Project/Homepage-responsive/)** &nbsp;&nbsp;&nbsp;&nbsp; Final project of "Advanced HTML and CSS Course", focus is on creating responsive portfolio
+- **[CV Application](https://sweet-manatee-d66f51.netlify.app/)** &nbsp;&nbsp;&nbsp;&nbsp; [Assignment](https://www.theodinproject.com/lessons/node-path-react-new-cv-application) React app, create and download CV. I used Tailwinf
 
