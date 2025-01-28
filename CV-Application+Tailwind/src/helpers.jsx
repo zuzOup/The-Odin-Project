@@ -60,6 +60,23 @@ export function yyyy_mmToyy(yyyy_mm) {
   return yyyy_mm;
 }
 
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+// TODO: fix dates?????????
+
 export function yyyy_mmToMMMyyyy(yyyy_mm) {
   if (yyyy_mm && yyyy_mm.includes("-")) {
     const date = new Date(yyyy_mm);
@@ -70,4 +87,22 @@ export function yyyy_mmToMMMyyyy(yyyy_mm) {
     return formattedDate;
   }
   return yyyy_mm;
+}
+
+export function yyyy_mmToMMMMM_yyyy(yyyy_mm) {
+  if (yyyy_mm && yyyy_mm.includes("-")) {
+    const date = new Date(yyyy_mm);
+
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1) % 12;
+
+    return months[month] + " " + year;
+  }
+  return yyyy_mm;
+}
+
+export function formatTel(string) {
+  if (!string || string.length !== 10) return string;
+  const formatted = `(${string.slice(0, 3)})-${string.slice(3, 6)}-${string.slice(6)}`;
+  return formatted;
 }

@@ -49,4 +49,36 @@ export const warningcss =
 export const hr =
   "h-0.5 mb-1 mx-2 bg-sky-800 border-0 rounded-full w-1/4   -translate-y-2 ";
 
-  
+export const cv = {
+  resume: " w-[950px] bg-white shrink-0 py-10 px-10 min-h-[250px] flex m-10",
+
+  header: "text-[22px] font-semibold text-sky-800 italic text-start mt-8",
+
+  left: "w-5/7",
+  leftInner: "w-full mb-5 pr-10",
+
+  basicInfo: "flex flex-col items-start justify-start",
+  h1: "text-[40px] leading-none font-bold text-sky-800 ",
+  h2: "text-[28px] font-light italic text-sky-800",
+  sum: "text-[16px] text-justify pt-5",
+
+  headerDiv: "flex justify-start items-center mt-4",
+  headerDivInner: "w-full flex justify-between items-center",
+  headerIcon: "size-[12px] mr-2 text-sky-900",
+  title: "text-[18px] font-medium",
+  date: "text-[13px] font-light italic",
+  hr: "h-0.5 mb-1  bg-sky-800 border-0 rounded-full w-full translate-y-0.5   ",
+
+  subHeader: "text-[16px] text-start pl-5 mb-1 leading-none font-light italic",
+  list: "pl-5 text-start",
+
+  right: "w-2/7",
+  rightInner: "w-full pl-4 border-l-2 border-sky-800 justify-self-end mb-10 text-start",
+
+  divIcon: "text-[16px] flex items-center my-3 italic ",
+  icon: "size-[18px] text-sky-800 mr-5",
+
+  category: "mb-3",
+  categoryHeader: "text-[16px] ml-2 font-medium",
+  li: "text-[14px] list-disc ml-10 marker:text-sky-800",
+};
