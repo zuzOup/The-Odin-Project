@@ -41,7 +41,9 @@ function Header({ dataLoad, dataDelete, info }) {
           }
         }
 
-        pdf.save(`CV - ${info.firstName} ${info.secondName}.pdf`);
+        pdf.save(
+          `CV - ${info.firstName || "[Name]"} ${info.secondName || "[Surname]"}.pdf`
+        );
       })
       .then(() => {
         document.body.removeChild(clone);
