@@ -29,7 +29,8 @@ function App() {
     setInfo((o) => addValueToObject(o, e, key));
   };
 
-  const dataLoad = () => {
+  const dataLoad = (e) => {
+    e.currentTarget.blur();
     setInfo(data.info);
     setEduInfo(data.education);
     setWorkInfo(data.work);
@@ -37,7 +38,8 @@ function App() {
     setSoftInfo(data.soft);
   };
 
-  const dataDelete = () => {
+  const dataDelete = (e) => {
+    e.currentTarget.blur();
     setInfo({});
     setEduInfo({});
     setWorkInfo({});
