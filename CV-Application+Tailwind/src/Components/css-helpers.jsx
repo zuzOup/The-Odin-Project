@@ -2,9 +2,9 @@ export const container =
   "w-11/12 bg-white flex flex-col rounded-xl shadow-lg px-6 py-8 justify-between mb-10";
 
 export const buttonSmall =
-  "text-gray-900 bg-gradient-to-br border-gray-300 shadow-md from-sky-100 to-lime-100 hover:bg-gradient-to-l hover:from-sky-100 hover:to-lime-100 focus:ring-2 focus:outline-none focus:ring-lime-200  active:translate-y-1 transition duration-150 ease-in-out font-medium rounded-lg text-sm px-3 py-2 text-center hover:cursor-pointer";
+  "text-gray-900 my-1.5 bg-gradient-to-br border-gray-300 shadow-md from-sky-100 to-lime-100 hover:bg-gradient-to-l hover:from-sky-100 hover:to-lime-100 focus:ring-2 focus:outline-none focus:ring-lime-200  active:translate-y-1 transition duration-150 ease-in-out font-medium rounded-lg text-sm px-3 py-2 text-center hover:cursor-pointer";
 
-export const buttonContainer = " w-full mt-3";
+export const buttonContainer = " w-full mt-1.5";
 
 export const input =
   "peer w-full border border-gray-300 rounded-lg px-3 pt-4 pb-2 my-3 focus:outline-none focus:ring-1 focus:ring-sky-800 focus:border-sky-800";
@@ -50,7 +50,8 @@ export const hr =
   "h-0.5 mb-1 mx-2 bg-sky-800 border-0 rounded-full w-1/4   -translate-y-2 ";
 
 export const cv = {
-  resume: " w-[950px] bg-white shrink-0 py-10 px-10 min-h-[250px] flex m-10 scale-[0.5] ",
+  resume:
+    " w-[950px]  bg-white shrink-0 py-10 px-10 min-h-[1229px] flex m-10 scale-[0.5] ",
 
   header: "text-[22px] font-semibold text-sky-800 italic text-start mt-8",
 

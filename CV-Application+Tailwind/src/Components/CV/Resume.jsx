@@ -14,7 +14,7 @@ import {
 
 function Resume({ info, eduInfo, workInfo, techInfo, softInfo }) {
   const ref = useRef(null);
-  const [translate, setTranslate] = useState("");
+  const [height, setHeight] = useState("");
 
   useEffect(() => {
     const element = ref.current;
@@ -23,7 +23,7 @@ function Resume({ info, eduInfo, workInfo, techInfo, softInfo }) {
 
     const resizeObserver = new ResizeObserver((entries) => {
       for (let entry of entries) {
-        setTranslate(`translateY(-${entry.contentRect.height / 2}px)`);
+        setHeight(entry.contentRect.height);
       }
     });
 
@@ -35,143 +35,151 @@ function Resume({ info, eduInfo, workInfo, techInfo, softInfo }) {
   }, []);
 
   return (
-    <div
-      className={cv.resume}
-      id="resume"
-      ref={ref}
-      style={{
-        transform: translate,
-      }}
-    >
-      <div className={cv.left}>
-        <div className={`${cv.basicInfo} ${cv.leftInner}`}>
-          <div className={`${cv.h1} flex`}>
-            <div>{info.firstName || "[First]"}</div>&nbsp;
-            <div>{info.secondName || "[Second]"}</div>
+    <div className="w-1/2 min-h-full h-screen bg-gray-200 text-center flex justify-center items-start overflow-x-hidden overflow-y-scroll scrollbar-column">
+      <div
+        style={{
+          height: `${height/2 + 125}px`,
+        }}
+      >
+        <div
+          className={cv.resume}
+          id="resume"
+          ref={ref}
+          style={{
+            transform: `translateY(-${height / 2 + 37.5}px)`,
+          }}
+        >
+          <div className={cv.left}>
+            <div className={`${cv.basicInfo} ${cv.leftInner}`}>
+              <div className={`${cv.h1} flex`}>
+                <div>{info.firstName || "[First]"}</div>&nbsp;
+                <div>{info.secondName || "[Second]"}</div>
+              </div>
+              <div className={cv.h2}>{info.title || "[Title]"}</div>
+              <div className={cv.sum}>{info.summary || "[Summary]"}</div>
+            </div>
+            <div className={cv.leftInner}>
+              <div className={cv.header}>WORK EXPERIENCE</div>
+              <div className={cv.hr}></div>
+              {Object.values(workInfo).map((w, i) => {
+                return (
+                  <div key={i} className="mt-2 mb-5">
+                    <div className={cv.headerDiv}>
+                      <StopIcon className={cv.headerIcon} />
+                      <div className={cv.headerDivInner}>
+                        <div className={cv.title}>{w.title}</div>
+                        <div className={cv.date}>{`${yyyy_mmToMMMMM_yyyy(
+                          w.start
+                        )} - ${yyyy_mmToMMMMM_yyyy(w.end)}`}</div>
+                      </div>
+                    </div>
+                    <div className={cv.subHeader}>{w.company}</div>
+                    <ul className={cv.list}>
+                      {w.list.map((x, i) => {
+                        return (
+                          <li className={cv.li} key={i}>
+                            {x}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+            <div className={cv.leftInner}>
+              <div className={cv.header}>EDUCATION</div>
+              <div className={cv.hr}></div>
+              {Object.values(eduInfo).map((w, i) => {
+                return (
+                  <div key={i} className="mt-2 mb-5">
+                    <div className={cv.headerDiv}>
+                      <StopIcon className={cv.headerIcon} />
+                      <div className={cv.headerDivInner}>
+                        <div className={cv.title}>{w.uni}</div>
+                        <div className={cv.date}>{yyyy_mmToMMMMM_yyyy(w.end)}</div>
+                      </div>
+                    </div>
+                    <div className={cv.subHeader}>{w.degree}</div>
+                    <ul className={cv.list}>
+                      {w.list.map((x, i) => {
+                        return (
+                          <li className={cv.li} key={i}>
+                            {x}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-          <div className={cv.h2}>{info.title || "[Title]"}</div>
-          <div className={cv.sum}>{info.summary || "[Summary]"}</div>
-        </div>
-        <div className={cv.leftInner}>
-          <div className={cv.header}>WORK EXPERIENCE</div>
-          <div className={cv.hr}></div>
-          {Object.values(workInfo).map((w, i) => {
-            return (
-              <div key={i} className="mt-2 mb-5">
-                <div className={cv.headerDiv}>
-                  <StopIcon className={cv.headerIcon} />
-                  <div className={cv.headerDivInner}>
-                    <div className={cv.title}>{w.title}</div>
-                    <div className={cv.date}>{`${yyyy_mmToMMMMM_yyyy(
-                      w.start
-                    )} - ${yyyy_mmToMMMMM_yyyy(w.end)}`}</div>
-                  </div>
-                </div>
-                <div className={cv.subHeader}>{w.company}</div>
-                <ul className={cv.list}>
-                  {w.list.map((x, i) => {
-                    return (
-                      <li className={cv.li} key={i}>
-                        {x}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            );
-          })}
-        </div>
-        <div className={cv.leftInner}>
-          <div className={cv.header}>EDUCATION</div>
-          <div className={cv.hr}></div>
-          {Object.values(eduInfo).map((w, i) => {
-            return (
-              <div key={i} className="mt-2 mb-5">
-                <div className={cv.headerDiv}>
-                  <StopIcon className={cv.headerIcon} />
-                  <div className={cv.headerDivInner}>
-                    <div className={cv.title}>{w.uni}</div>
-                    <div className={cv.date}>{yyyy_mmToMMMMM_yyyy(w.end)}</div>
-                  </div>
-                </div>
-                <div className={cv.subHeader}>{w.degree}</div>
-                <ul className={cv.list}>
-                  {w.list.map((x, i) => {
-                    return (
-                      <li className={cv.li} key={i}>
-                        {x}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            );
-          })}
-        </div>
-      </div>
 
-      <div className={cv.right}>
-        <div className={cv.rightInner}>
-          <div className={cv.divIcon}>
-            <PhoneIcon className={cv.icon} />
-            <div>{formatTel(info.tel) || "[(123)-456-7890]"}</div>
-          </div>
-          <div className={cv.divIcon}>
-            <AtSymbolIcon className={cv.icon} />
-            <div>{info.email || "[email@email.com]"}</div>
-          </div>
-          {info.location && (
-            <div className={cv.divIcon}>
-              <MapPinIcon className={cv.icon} />
-              <div>{info.location}</div>
-            </div>
-          )}
-          {info.web && (
-            <div className={cv.divIcon}>
-              <LinkIcon className={cv.icon} />
-              <div>{info.web}</div>
-            </div>
-          )}
-        </div>
-        <div className={cv.rightInner}>
-          <div className={cv.header}>TECHNICAL SKILLS</div>
-          {Object.entries(techInfo).map((o) => {
-            return (
-              <div key={o[0]} className={cv.category}>
-                <div className={cv.categoryHeader}>{o[0]}</div>
-                <ul>
-                  {o[1] &&
-                    o[1].map((x) => {
-                      return (
-                        <li className={cv.li} key={x}>
-                          {x}
-                        </li>
-                      );
-                    })}
-                </ul>
+          <div className={cv.right}>
+            <div className={cv.rightInner}>
+              <div className={cv.divIcon}>
+                <PhoneIcon className={cv.icon} />
+                <div>{formatTel(info.tel) || "[(123)-456-7890]"}</div>
               </div>
-            );
-          })}
-        </div>
-        <div className={cv.rightInner}>
-          <div className={cv.header}>OTHER SKILLS</div>
-          {Object.entries(softInfo).map((o) => {
-            return (
-              <div key={o[0]} className={cv.category}>
-                <div className={cv.categoryHeader}>{o[0]}</div>
-                <ul>
-                  {o[1] &&
-                    o[1].map((x) => {
-                      return (
-                        <li className={cv.li} key={x}>
-                          {x}
-                        </li>
-                      );
-                    })}
-                </ul>
+              <div className={cv.divIcon}>
+                <AtSymbolIcon className={cv.icon} />
+                <div>{info.email || "[email@email.com]"}</div>
               </div>
-            );
-          })}
+              {info.location && (
+                <div className={cv.divIcon}>
+                  <MapPinIcon className={cv.icon} />
+                  <div>{info.location}</div>
+                </div>
+              )}
+              {info.web && (
+                <div className={cv.divIcon}>
+                  <LinkIcon className={cv.icon} />
+                  <div>{info.web}</div>
+                </div>
+              )}
+            </div>
+            <div className={cv.rightInner}>
+              <div className={cv.header}>TECHNICAL SKILLS</div>
+              {Object.entries(techInfo).map((o) => {
+                return (
+                  <div key={o[0]} className={cv.category}>
+                    <div className={cv.categoryHeader}>{o[0]}</div>
+                    <ul>
+                      {o[1] &&
+                        o[1].map((x) => {
+                          return (
+                            <li className={cv.li} key={x}>
+                              {x}
+                            </li>
+                          );
+                        })}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+            <div className={cv.rightInner}>
+              <div className={cv.header}>OTHER SKILLS</div>
+              {Object.entries(softInfo).map((o) => {
+                return (
+                  <div key={o[0]} className={cv.category}>
+                    <div className={cv.categoryHeader}>{o[0]}</div>
+                    <ul>
+                      {o[1] &&
+                        o[1].map((x) => {
+                          return (
+                            <li className={cv.li} key={x}>
+                              {x}
+                            </li>
+                          );
+                        })}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </div>
