@@ -51,7 +51,7 @@ function SoftSkills({ softInfo, setSoftInfo }) {
   };
 
   return (
-    <div className={container}>
+    <section className={container}>
       <H2 label="Additional Skills" />
       <div>
         {Object.entries(softInfo).map((x, i) => {
@@ -89,7 +89,7 @@ function SoftSkills({ softInfo, setSoftInfo }) {
       <button className={`${buttonSmall} ${buttonContainer}`} onClick={addSkill}>
         Submit Skill / Add Different Skill
       </button>
-    </div>
+    </section>
   );
 }
 

@@ -14,7 +14,7 @@ function Toggle({ label = "label", toggleHandle, toggle }) {
             toggle ? "transform translate-x-6" : ""
           }`}
         ></span>
-      </button>{" "}
+      </button>
       <label className="text-gray-700 font-medium text-sm">{label}</label>
     </div>
   );

@@ -50,7 +50,7 @@ function TechnicalSkills({ techInfo, setTechInfo }) {
   };
 
   return (
-    <div className={container}>
+    <section className={container}>
       <H2 label="Technical Skills" />
       <div>
         {Object.entries(techInfo).map((x, i) => {
@@ -86,7 +86,7 @@ function TechnicalSkills({ techInfo, setTechInfo }) {
       <button className={`${buttonSmall} ${buttonContainer}`} onClick={addSkill}>
         Submit Skill / Add Different Skill
       </button>
-    </div>
+    </section>
   );
 }
 

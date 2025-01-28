@@ -144,7 +144,7 @@ function Work({ workInfo, setWorkInfo }) {
   };
 
   return (
-    <div className={container}>
+    <section className={container}>
       <H2 label="Work Experience" />
       <div>
         {Object.entries(workInfo).map((x) => {
@@ -214,7 +214,7 @@ function Work({ workInfo, setWorkInfo }) {
       <button className={`${buttonSmall} ${buttonContainer}`} onClick={addWork}>
         Submit Experience / Add Different Experience
       </button>
-    </div>
+    </section>
   );
 }
 

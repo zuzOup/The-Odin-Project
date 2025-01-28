@@ -113,7 +113,7 @@ function Education({ eduInfo, setEduInfo }) {
   };
 
   return (
-    <div className={container}>
+    <section className={container}>
       <H2 label="Education" />
       <div>
         {Object.entries(eduInfo).map((x) => {
@@ -171,7 +171,7 @@ function Education({ eduInfo, setEduInfo }) {
       <button className={`${buttonSmall} ${buttonContainer}`} onClick={addEdu}>
         Submit Education / Add Different Education
       </button>
-    </div>
+    </section>
   );
 }
 

@@ -51,10 +51,10 @@ function Header({ dataLoad, dataDelete, info }) {
   };
 
   return (
-    <div className={`${container} flex-row justify-evenly items-center`}>
+    <header className={`${container} flex-row justify-evenly items-center`}>
       <div>
         <h1 className="text-6xl text-sky-800 font-bold">CV Generator</h1>
-        <div className="text-sm pt-1 italic text-sky-800">
+        <h2 className="text-sm pt-1 italic text-sky-800">
           by&nbsp;
           <a
             href="https://github.com/zuzOup/"
@@ -63,7 +63,7 @@ function Header({ dataLoad, dataDelete, info }) {
           >
             Zuzana O.
           </a>
-        </div>
+        </h2>
       </div>
       <div className="flex flex-col h-full justify-between">
         <button className={buttonSmall} onClick={dataLoad}>
@@ -76,7 +76,7 @@ function Header({ dataLoad, dataDelete, info }) {
           Download PDF
         </button>
       </div>
-    </div>
+    </header>
   );
 }
 

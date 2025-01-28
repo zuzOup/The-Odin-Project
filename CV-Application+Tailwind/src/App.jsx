@@ -46,7 +46,7 @@ function App() {
   };
 
   return (
-    <div className="flex min-h-screen font-sans ">
+    <main className="flex min-h-screen font-sans ">
       <div className="w-1/2 min-h-full h-screen bg-sky-50 flex flex-col items-center text-center py-4 overflow-x-hidden overflow-y-auto scrollbar-column">
         <Header dataLoad={dataLoad} dataDelete={dataDelete} info={info} />
         <BasicInfo changeInfo={changeInfo} info={info} />
@@ -64,7 +64,7 @@ function App() {
         techInfo={techInfo}
         softInfo={softInfo}
       />
-    </div>
+    </main>
   );
 }
 

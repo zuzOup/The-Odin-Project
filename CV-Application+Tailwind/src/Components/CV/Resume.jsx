@@ -35,7 +35,7 @@ function Resume({ info, eduInfo, workInfo, techInfo, softInfo }) {
   }, []);
 
   return (
-    <div className="w-1/2 min-h-full h-screen bg-gray-200 text-center flex justify-center items-start overflow-x-hidden overflow-y-scroll scrollbar-column">
+    <aside className="w-1/2 min-h-full h-screen bg-gray-200 text-center flex justify-center items-start overflow-x-hidden overflow-y-scroll scrollbar-column">
       <div
         style={{
           height: `${height / 2 + 125}px`,
@@ -50,16 +50,16 @@ function Resume({ info, eduInfo, workInfo, techInfo, softInfo }) {
           }}
         >
           <div className={cv.left}>
-            <div className={`${cv.basicInfo} ${cv.leftInner}`}>
-              <div className={`${cv.h1} flex`}>
-                <div>{info.firstName || "[First]"}</div>&nbsp;
-                <div>{info.secondName || "[Second]"}</div>
-              </div>
-              <div className={cv.h2}>{info.title || "[Title]"}</div>
-              <div className={cv.sum}>{info.summary || "[Summary]"}</div>
-            </div>
-            <div className={cv.leftInner}>
-              <div className={cv.header}>WORK EXPERIENCE</div>
+            <header className={`${cv.basicInfo} ${cv.leftInner}`}>
+              <h1 className={`${cv.h1} flex`}>
+                <span>{info.firstName || "[First]"}</span>&nbsp;
+                <span>{info.secondName || "[Second]"}</span>
+              </h1>
+              <h2 className={cv.h2}>{info.title || "[Title]"}</h2>
+              <p className={cv.sum}>{info.summary || "[Summary]"}</p>
+            </header>
+            <section className={cv.leftInner}>
+              <h3 className={cv.header}>WORK EXPERIENCE</h3>
               <div className={cv.hr}></div>
               {Object.values(workInfo).map((w, i) => {
                 return (
@@ -67,13 +67,13 @@ function Resume({ info, eduInfo, workInfo, techInfo, softInfo }) {
                     <div className={cv.headerDiv}>
                       <StopIcon className={cv.headerIcon} />
                       <div className={cv.headerDivInner}>
-                        <div className={cv.title}>{w.title}</div>
-                        <div className={cv.date}>{`${yyyy_mmToMMMMM_yyyy(
+                        <h4 className={cv.title}>{w.title}</h4>
+                        <h6 className={cv.date}>{`${yyyy_mmToMMMMM_yyyy(
                           w.start
-                        )} - ${yyyy_mmToMMMMM_yyyy(w.end)}`}</div>
+                        )} - ${yyyy_mmToMMMMM_yyyy(w.end)}`}</h6>
                       </div>
                     </div>
-                    <div className={cv.subHeader}>{w.company}</div>
+                    <h5 className={cv.subHeader}>{w.company}</h5>
                     <ul className={cv.list}>
                       {w.list.map((x, i) => {
                         return (
@@ -86,9 +86,9 @@ function Resume({ info, eduInfo, workInfo, techInfo, softInfo }) {
                   </div>
                 );
               })}
-            </div>
-            <div className={cv.leftInner}>
-              <div className={cv.header}>EDUCATION</div>
+            </section>
+            <section className={cv.leftInner}>
+              <h3 className={cv.header}>EDUCATION</h3>
               <div className={cv.hr}></div>
               {Object.values(eduInfo).map((w, i) => {
                 return (
@@ -96,11 +96,11 @@ function Resume({ info, eduInfo, workInfo, techInfo, softInfo }) {
                     <div className={cv.headerDiv}>
                       <StopIcon className={cv.headerIcon} />
                       <div className={cv.headerDivInner}>
-                        <div className={cv.title}>{w.uni}</div>
-                        <div className={cv.date}>{yyyy_mmToMMMMM_yyyy(w.end)}</div>
+                        <h4 className={cv.title}>{w.uni}</h4>
+                        <h6 className={cv.date}>{yyyy_mmToMMMMM_yyyy(w.end)}</h6>
                       </div>
                     </div>
-                    <div className={cv.subHeader}>{w.degree}</div>
+                    <h5 className={cv.subHeader}>{w.degree}</h5>
                     <ul className={cv.list}>
                       {w.list.map((x, i) => {
                         return (
@@ -113,7 +113,7 @@ function Resume({ info, eduInfo, workInfo, techInfo, softInfo }) {
                   </div>
                 );
               })}
-            </div>
+            </section>
           </div>
 
           <div className={cv.right}>
@@ -139,12 +139,12 @@ function Resume({ info, eduInfo, workInfo, techInfo, softInfo }) {
                 </div>
               )}
             </div>
-            <div className={cv.rightInner}>
-              <div className={cv.header}>TECHNICAL SKILLS</div>
+            <section className={cv.rightInner}>
+              <h3 className={cv.header}>TECHNICAL SKILLS</h3>
               {Object.entries(techInfo).map((o) => {
                 return (
                   <div key={o[0]} className={cv.category}>
-                    <div className={cv.categoryHeader}>{o[0]}</div>
+                    <h4 className={cv.categoryHeader}>{o[0]}</h4>
                     <ul>
                       {o[1] &&
                         o[1].map((x) => {
@@ -158,13 +158,13 @@ function Resume({ info, eduInfo, workInfo, techInfo, softInfo }) {
                   </div>
                 );
               })}
-            </div>
-            <div className={cv.rightInner}>
-              <div className={cv.header}>OTHER SKILLS</div>
+            </section>
+            <section className={cv.rightInner}>
+              <h3 className={cv.header}>OTHER SKILLS</h3>
               {Object.entries(softInfo).map((o) => {
                 return (
                   <div key={o[0]} className={cv.category}>
-                    <div className={cv.categoryHeader}>{o[0]}</div>
+                    <h4 className={cv.categoryHeader}>{o[0]}</h4>
                     <ul>
                       {o[1] &&
                         o[1].map((x) => {
@@ -178,11 +178,11 @@ function Resume({ info, eduInfo, workInfo, techInfo, softInfo }) {
                   </div>
                 );
               })}
-            </div>
+            </section>
           </div>
         </div>
       </div>
-    </div>
+    </aside>
   );
 }
 

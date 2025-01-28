@@ -14,7 +14,7 @@ const inputs = {
 
 function BasicInfo({ info, changeInfo }) {
   return (
-    <div className={container}>
+    <section className={container}>
       <H2 label="Basic Info" />
 
       {Object.entries(inputs).map((x) => {
@@ -37,7 +37,7 @@ function BasicInfo({ info, changeInfo }) {
         value={info.summary}
         required={true}
       />
-    </div>
+    </section>
   );
 }
 

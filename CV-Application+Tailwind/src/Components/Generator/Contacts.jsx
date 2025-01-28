@@ -7,7 +7,7 @@ import Input from "../Input";
 
 function Contacts({ info, changeInfo }) {
   return (
-    <div className={container}>
+    <section className={container}>
       <H2 label="Contacts" />
 
       <Input
@@ -33,7 +33,7 @@ function Contacts({ info, changeInfo }) {
         value={info.location}
       />
       <Input label="Webpage" dataLabel="web" changeInfo={changeInfo} value={info.web} />
-    </div>
+    </section>
   );
 }
 
