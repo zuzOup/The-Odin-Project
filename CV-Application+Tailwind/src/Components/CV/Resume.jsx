@@ -38,7 +38,7 @@ function Resume({ info, eduInfo, workInfo, techInfo, softInfo }) {
     <div className="w-1/2 min-h-full h-screen bg-gray-200 text-center flex justify-center items-start overflow-x-hidden overflow-y-scroll scrollbar-column">
       <div
         style={{
-          height: `${height/2 + 125}px`,
+          height: `${height / 2 + 125}px`,
         }}
       >
         <div

@@ -1,12 +1,39 @@
 import PropTypes from "prop-types";
 
+import html2canvas from "html2canvas-pro";
+import { jsPDF } from "jspdf";
+
 import { buttonSmall, container } from "../css-helpers";
 
-function printPDF() {
-  console.log("PDF");
-}
+function Header({ dataLoad, dataDelete, info }) {
+  const printPDF = () => {
+    const resume = document.getElementById("resume");
 
-function Header({ dataLoad, dataDelete }) {
+    if (!resume) {
+      return;
+    }
+
+    const clone = resume.cloneNode(true);
+    document.body.appendChild(clone);
+    clone.style.scale = "none";
+    clone.style.transform = "translateY(5000px)";
+
+    html2canvas(clone)
+      .then((canvas) => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF("p", "mm", "letter");
+
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+        pdf.save(`CV - ${info.firstName} ${info.secondName}.pdf`);
+      })
+      .then(() => {
+        document.body.removeChild(clone);
+      });
+  };
+
   return (
     <div className={`${container} flex-row justify-evenly items-center`}>
       <div>
@@ -39,4 +66,9 @@ function Header({ dataLoad, dataDelete }) {
 
 export default Header;
 
-Header.propTypes = { dataLoad: PropTypes.func, dataDelete: PropTypes.func };
+Header.propTypes = {
+  dataLoad: PropTypes.func,
+  dataDelete: PropTypes.func,
+  printPDF: PropTypes.func,
+  info: PropTypes.obj,
+};
