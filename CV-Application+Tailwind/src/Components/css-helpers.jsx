@@ -50,7 +50,7 @@ export const hr =
   "h-0.5 mb-1 mx-2 bg-sky-800 border-0 rounded-full w-1/4   -translate-y-2 ";
 
 export const cv = {
-  resume: " w-[950px] bg-white shrink-0 py-10 px-10 min-h-[250px] flex m-10",
+  resume: " w-[950px] bg-white shrink-0 py-10 px-10 min-h-[250px] flex m-10 scale-[0.5] ",
 
   header: "text-[22px] font-semibold text-sky-800 italic text-start mt-8",
 

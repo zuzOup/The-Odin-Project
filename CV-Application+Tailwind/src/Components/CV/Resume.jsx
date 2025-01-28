@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-
+import { useEffect, useRef, useState } from "react";
 import { formatTel, yyyy_mmToMMMMM_yyyy } from "../../helpers";
 
 import { cv } from "../css-helpers";
@@ -13,8 +13,36 @@ import {
 } from "@heroicons/react/24/outline";
 
 function Resume({ info, eduInfo, workInfo, techInfo, softInfo }) {
+  const ref = useRef(null);
+  const [translate, setTranslate] = useState("");
+
+  useEffect(() => {
+    const element = ref.current;
+
+    if (!element) return;
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        setTranslate(`translateY(-${entry.contentRect.height / 2}px)`);
+      }
+    });
+
+    resizeObserver.observe(element);
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
+
   return (
-    <div className={cv.resume} id="resume">
+    <div
+      className={cv.resume}
+      id="resume"
+      ref={ref}
+      style={{
+        transform: translate,
+      }}
+    >
       <div className={cv.left}>
         <div className={`${cv.basicInfo} ${cv.leftInner}`}>
           <div className={`${cv.h1} flex`}>
