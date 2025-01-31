@@ -11,15 +11,18 @@ function Aside({
 }) {
   return (
     <aside>
-      <div>Score:{score}</div>
-      <div>Best Score:{bestScore}</div>
-      <input
-        value={numberOfCards}
-        type="number"
-        min="2"
-        max="151"
-        onChange={setNumber}
-      ></input>
+      <p>Score: {score}</p>
+      <p>Best Score: {bestScore}</p>
+      <label>
+        Number of Cards:{" "}
+        <input
+          value={numberOfCards}
+          type="number"
+          min="2"
+          max="151"
+          onChange={setNumber}
+        ></input>
+      </label>
     </aside>
   );
 }
