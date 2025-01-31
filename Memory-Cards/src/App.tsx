@@ -43,15 +43,20 @@ const reducer = (state: State, action: Action) => {
         data: manageData(action.payload),
         cards: getRandomItems(manageData(action.payload), state.numberOfCards),
       };
-    case "setNumberOfCards":
+    case "setNumberOfCards": {
+      let num = Number(action.payload);
+      if (Number(action.payload) < 2) num = 2;
+      if (Number(action.payload) > 151) num = 151;
+
       return {
         ...state,
-        numberOfCards: Number(action.payload),
+        numberOfCards: num,
         score: 0,
         visited: [],
         bestScore: 0,
-        cards: getRandomItems(state.data, Number(action.payload)),
+        cards: getRandomItems(state.data, num),
       };
+    }
     case "gameTurn": {
       //Loosing
       if (state.visited.includes(action.payload)) {
