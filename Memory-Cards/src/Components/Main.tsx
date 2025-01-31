@@ -1,16 +1,20 @@
 import Card from "./Card";
 
-function Main({ cards, setCards }: { cards: any; setCards: (name: "string") => void }) {
+type Card = {name:string, url:string}
+
+function Main({ cards, setCards }: { cards: Card[]; setCards: (name: string) => void }) {
   return (
     <main>
-      {cards.map((card: any) => (
-        <Card
-          key={card.name}
-          name={card.name}
-          url={card.url}
-          setCards={() => setCards(card.name)}
-        />
-      ))}
+      <div>
+        {cards.map((card) => (
+          <Card
+            key={card.name}
+            name={card.name}
+            url={card.url}
+            setCards={() => setCards(card.name)}
+          />
+        ))}
+      </div>
     </main>
   );
 }

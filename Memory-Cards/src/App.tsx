@@ -9,7 +9,7 @@ import Aside from "./Components/Aside";
 import Header from "./Components/Header";
 import Main from "./Components/Main";
 
-const getRandomItems = (data: NamedAPIResource[] | any[], num: number) => {
+const getRandomItems = (data: NamedAPIResource[], num: number) => {
   const arr = [...data];
 
   for (let i = arr.length - 1; i > 0; i--) {
@@ -29,7 +29,13 @@ const manageData = (data: NamedAPIResource[]) => {
   });
 };
 
-const reducer = (state: any, action: any) => {
+type Action =
+  | { type: "newSetOfCards"; payload: NamedAPIResource[] }
+  | { type: "setNumberOfCards"; payload: string }
+  | { type: "gameTurn"; payload: string }
+  | { type: "turnModalOff" };
+
+const reducer = (state: State, action: Action) => {
   switch (action.type) {
     case "newSetOfCards":
       return {
@@ -86,22 +92,32 @@ const reducer = (state: any, action: any) => {
       }
     }
     case "turnModalOff":
-      return { ...state, modal: false };
+      return { ...state, modal: null };
 
     default:
       return state;
   }
 };
 
+type State = {
+  data: NamedAPIResource[];
+  cards: NamedAPIResource[];
+  numberOfCards: number;
+  score: number;
+  bestScore: number;
+  visited: string[];
+  modal: null | string;
+};
+
 const initialState = {
   data: [],
   cards: [],
-  numberOfCards: 20,
+  numberOfCards: 18,
   score: 0,
   bestScore: 0,
   visited: [],
-  modal: false,
-};
+  modal: null,
+} satisfies State;
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -130,7 +146,7 @@ function App() {
       />
       <Main
         cards={state.cards}
-        setCards={(name: "string") => dispatch({ type: "gameTurn", payload: name })}
+        setCards={(name) => dispatch({ type: "gameTurn", payload: name })}
       />
       {state.modal && (
         <Modal

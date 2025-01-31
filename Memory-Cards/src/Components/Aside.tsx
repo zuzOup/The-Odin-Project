@@ -7,7 +7,7 @@ function Aside({
   score: number;
   bestScore: number;
   numberOfCards: number;
-  setNumber: (e: any) => void;
+  setNumber: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
   return (
     <aside>
