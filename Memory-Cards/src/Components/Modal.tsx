@@ -1,14 +1,10 @@
-function Modal({
-  variant,
-  setModal,
-}: {
-  variant: string | true;
-  setModal: (e: any) => void;
-}) {
+function Modal({ variant, setModal }: { variant: string | true; setModal: () => void }) {
   return (
     <div id="modal">
-      {variant}
-      <button onClick={setModal}>New Game?</button>
+      <div>
+        <p>{variant === "looser" ? "Oh no, you lost!" : "Congratulations! You win!"}</p>
+        <button onClick={setModal}>New Game</button>
+      </div>
     </div>
   );
 }
