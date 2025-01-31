@@ -7,32 +7,182 @@ body {
 #root {
   width: 100vw;
   height: 100vh;
-  background-color: aqua;
+  background-color: #f0f8e6;
 }
 
 header {
-  height: 20vh;
-  background-color: rgb(84, 18, 18);
+  height: 25vh;
+  padding: 20px 50px;
+
   h1 {
-    margin: 0;
+    margin: 0 0 5px 0;
+    font-size: 55px;
+  }
+
+  h2 {
+    margin: 5px;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  h3 {
+    margin: 5px;
+    font-weight: 200;
+    font-size: 15px;
+
+    a {
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:visited {
+      color: #243720;
+    }
+    a:hover {
+      color: #83be76;
+    }
   }
 }
 
 aside {
   position: absolute;
-  top: 0;
-  right: 0;
-  background-color: aquamarine;
+  top: 20px;
+  right: 20px;
+  background-color: white;
+  padding: 10px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+
+  p {
+    margin: 0;
+    font-size: large;
+  }
+  input {
+    margin-top: 10px;
+  }
+
+  label {
+    font-style: italic;
+  }
 }
 
 main {
-  height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding-bottom: 50px;
+  width: 100vw;
+  height: 75vh;
+
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  flex-flow: wrap;
+
+  & > div {
+    margin: 20px 20px 40px 20px;
+    padding-bottom: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-flow: wrap;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f0f8e6;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(200, 132, 240);
+    border: 1px rgba(0, 0, 0, 0.5) solid;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .card {
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 20px 10px 0 10px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+    transition: scale 100ms ease-in-out, box-shadow 100ms ease-in-out,
+      transform 50ms ease-in-out;
+
+    h4 {
+      padding: 0;
+      margin: 0;
+    }
+
+    img {
+      width: 96px;
+      height: 96px;
+    }
+  }
+
+  .card:hover {
+    scale: 1.1;
+    box-shadow: 1px 1px 1px 0px rgb(0 0 0 / 20%);
+  }
+
+  .card:active {
+    background-color: #e0edf4;
+    transform: translateY(4px);
+  }
 }
 
 #modal {
   position: absolute;
   top: 0;
   width: 100vw;
-  height: 100vw;
-  background-color: aqua;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.286);
+  backdrop-filter: blur(8px);
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+    padding: 30px 50px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+
+    p {
+      margin-top: 0;
+      font-size: 50px;
+      font-weight: 600;
+    }
+
+    button {
+      background-color: transparent;
+      border: 2px solid #83be76;
+      color: #83be76;
+      padding: 12px 24px;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #83be76;
+      color: white;
+      border-color: #83be76;
+    }
+  }
 }
