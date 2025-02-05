@@ -1,64 +1,117 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Header from "./Header";
+import { DataObject, initialData, Data, cartFilter, fetchData } from "./Helpers";
 
+import Header from "./Header";
 import Homepage from "./Homepage/Homepage";
 import Cart from "./Cart/Cart";
 import Shop from "./Shop/Shop";
 import Contacts from "./Contacts/Contacts";
-import { DataObject, InitialData } from "./Helpers";
 
-const fetchData = (json: InitialData[]) => {
-  return json.reduce((acc, cur) => {
-    return { ...acc, [cur.id]: { ...cur, cart: 0 } };
-  }, {});
+type Action =
+  | { type: "fetchData"; payload: DataObject }
+  | { type: "addToCart"; payload: number }
+  | { type: "subtractFromCart"; payload: number }
+  | { type: "removeFromCart"; payload: number }
+  | { type: "emptyCart" };
+
+const reducer = (state: State, action: Action) => {
+  switch (action.type) {
+    case "fetchData": {
+      return { ...state, data: action.payload };
+    }
+    case "addToCart": {
+      const id = action.payload;
+      const data = {
+        ...state.data,
+        [id]: { ...state.data[id], cart: Number(state.data[id].cart) + 1 },
+      };
+      const cart = cartFilter(data);
+
+      return { data, cart };
+    }
+    case "subtractFromCart": {
+      const id = action.payload;
+      if (state.data[id].cart === 0) return state;
+
+      const data = {
+        ...state.data,
+        [id]: { ...state.data[id], cart: Number(state.data[id].cart) - 1 },
+      };
+      const cart = cartFilter(data);
+
+      return { data, cart };
+    }
+    case "removeFromCart": {
+      const id = action.payload;
+
+      const data = {
+        ...state.data,
+        [id]: { ...state.data[id], cart: 0 },
+      };
+
+      const cart = cartFilter(data);
+
+      return { data, cart };
+    }
+    case "emptyCart": {
+      const data = Object.entries({ ...state.data }).reduce((acc, cur) => {
+        return { ...acc, [cur[0]]: { ...cur[1], cart: 0 } };
+      }, {});
+      return { data, cart: [] };
+    }
+    default:
+      return state;
+  }
+};
+
+type State = {
+  data: DataObject;
+  cart: Data[];
+};
+
+const initialState = {
+  data: initialData,
+  cart: [],
 };
 
 function App() {
-  const [data, setData] = useState<DataObject>({});
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
-      .then((json) => setData(fetchData(json)));
+      .then((json) => {
+        dispatch({ type: "fetchData", payload: fetchData(json) });
+      });
   }, []);
 
   const addToCart = (id: number) => {
-    setData((data) => {
-      const cart = Number(data[id as keyof DataObject].cart) + 1;
-      return { ...data, [id]: { ...data[id], cart } };
-    });
+    dispatch({ type: "addToCart", payload: id });
   };
 
   const subtractFromCart = (id: number) => {
-    setData((data) => {
-      const item = Number(data[id as keyof DataObject].cart);
-
-      if (item === 0) return data;
-
-      const cart = item - 1;
-      return { ...data, [id]: { ...data[id], cart } };
-    });
+    dispatch({ type: "subtractFromCart", payload: id });
   };
 
   const removeFromCart = (id: number) => {
-    setData((data) => {
-      return { ...data, [id]: { ...data[id], cart: 0 } };
-    });
+    dispatch({ type: "removeFromCart", payload: id });
   };
 
   const emptyCart = () => {
-    setData((data) => {
-      return Object.entries({ ...data }).reduce((acc, cur) => {
-        return { ...acc, [cur[0]]: { ...cur[1], cart: 0 } };
-      }, {});
-    });
+    dispatch({ type: "emptyCart" });
   };
 
   return (
     <BrowserRouter>
-      <Header data={data}/>
+      <Header
+        data={state.data}
+        addToCart={addToCart}
+        subtractFromCart={subtractFromCart}
+        removeFromCart={removeFromCart}
+        emptyCart={emptyCart}
+      />
       <main>
         <Routes>
           <Route path="/" element={<Homepage />} />
@@ -66,7 +119,7 @@ function App() {
             path="/Shop"
             element={
               <Shop
-                data={data}
+                data={state.data}
                 addToCart={addToCart}
                 subtractFromCart={subtractFromCart}
                 removeFromCart={removeFromCart}
@@ -75,10 +128,10 @@ function App() {
           />
           <Route path="/Contacts" element={<Contacts />} />
           <Route
-            path="/Cart"
+            path="/Paymenet"
             element={
               <Cart
-                data={data}
+                data={state.data}
                 addToCart={addToCart}
                 subtractFromCart={subtractFromCart}
                 removeFromCart={removeFromCart}

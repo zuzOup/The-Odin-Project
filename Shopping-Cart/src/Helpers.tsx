@@ -1,4 +1,17 @@
-export type InitialData = {
+// ---------------  *✩‧₊˚  FUNCS  ˚₊‧✩*  ------------------------------------------------
+export function fetchData(json: JsonData[]) {
+  return json.reduce((acc, cur) => {
+    return { ...acc, [cur.id]: { ...cur, cart: 0 } };
+  }, {});
+}
+
+export function cartFilter(data: DataObject) {
+  return Object.values(data).filter((x) => x.cart !== 0);
+}
+
+// ---------------  *✩‧₊˚  TYPES  ˚₊‧✩*  ------------------------------------------------
+
+export type JsonData = {
   category: string;
   description: string;
   id: number;
@@ -19,19 +32,19 @@ export type Data = {
   cart: number;
 };
 
-// export type CartType = { [key: string]: number } | null;
-
 export type DataObject = { [key: number]: Data };
 
-// const initialState = {
-//   0: {
-//     category: "",
-//     description: "",
-//     id: 0,
-//     image: "",
-//     price: 0,
-//     rating: { rate: 0, count: 0 },
-//     title: "",
-//     cart: 0,
-//   },
-// };
+// ---------------  *✩‧₊˚  CONST  ˚₊‧✩*  ------------------------------------------------
+
+export const initialData = {
+  0: {
+    category: "",
+    description: "",
+    id: 0,
+    image: "",
+    price: 0,
+    rating: { rate: 0, count: 0 },
+    title: "",
+    cart: 0,
+  },
+};

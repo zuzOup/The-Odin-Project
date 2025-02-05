@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { DataObject } from "../Helpers";
+import CartItem from "./CartItems";
 
 type Props = {
   data: DataObject;
@@ -25,14 +26,15 @@ function Cart({ data, addToCart, subtractFromCart, removeFromCart, emptyCart }: 
       <div>
         {Object.values(cart).map((x) => {
           return (
-            <div key={x.id}>
-              <div>{x.title}</div>
-              <div> Amount : {x.cart}</div>
-              <div> Price : {x.price * x.cart}</div>
-              <button onClick={() => addToCart(x.id)}>++ </button>
-              <button onClick={() => subtractFromCart(x.id)}>-- </button>
-              <button onClick={() => removeFromCart(x.id)}></button>
-            </div>
+            <CartItem
+              key={x.id}
+              title={x.title}
+              amount={x.cart}
+              totalPrice={x.price * x.cart}
+              addToCart={() => addToCart(x.id)}
+              subtractFromCart={() => subtractFromCart(x.id)}
+              removeFromCart={() => removeFromCart(x.id)}
+            />
           );
         })}
       </div>
@@ -41,6 +43,7 @@ function Cart({ data, addToCart, subtractFromCart, removeFromCart, emptyCart }: 
         return acc + cur.price * cur.cart;
       }, 0)}
       <button onClick={emptyCart}> Empty Cart</button>
+      <div>Cela sekce o placeni</div>
     </div>
   );
 }
