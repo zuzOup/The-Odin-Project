@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router";
 
-import { cartAmount, CartFuncs, Data } from "./Helpers";
-import CartModal from "./Cart/CartModal";
+import { cartAmount, CartFuncs, Data } from "../helpers";
+import CartModal from "./CartModal";
 
 type Props = {
   cart: Data[];

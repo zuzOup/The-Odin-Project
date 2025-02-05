@@ -7,7 +7,7 @@ type Props = {
   removeFromCart: () => void;
 };
 
-function Item(props: Props) {
+function ShopItem(props: Props) {
   const { title, url, cartValue, addToCart, subtractFromCart, removeFromCart } = props;
 
   return (
@@ -22,4 +22,4 @@ function Item(props: Props) {
   );
 }
 
-export default Item;
+export default ShopItem;

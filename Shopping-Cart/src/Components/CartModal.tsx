@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router";
-import { Data, CartFuncs } from "../Helpers";
+import { Data, CartFuncs } from "../helpers";
+
 import CartItems from "./CartItems";
 
 type Props = {

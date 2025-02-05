@@ -1,4 +1,4 @@
-import { CartFuncs, Data } from "../Helpers";
+import { CartFuncs, Data } from "../helpers";
 
 type Props = {
   cart: Data[];

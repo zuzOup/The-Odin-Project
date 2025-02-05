@@ -1,13 +1,13 @@
 import { useEffect, useReducer } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { DataObject, Data, cartFilter, fetchData } from "./Helpers";
+import { DataObject, Data, cartFilter, fetchData } from "./helpers";
 
-import Header from "./Header";
-import Homepage from "./Homepage/Homepage";
-import Shop from "./Shop/Shop";
-import Contacts from "./Contacts/Contacts";
-import Payment from "./Cart/Payment";
+import Header from "./Components/Header";
+import Homepage from "./Components/Homepage";
+import Shop from "./Components/Shop";
+import Contacts from "./Components/Contacts";
+import Payment from "./Components/Payment";
 
 type Action =
   | { type: "fetchData"; payload: DataObject }

@@ -1,5 +1,5 @@
-import { CartFuncs, DataObject } from "../Helpers";
-import Item from "./Item";
+import { CartFuncs, DataObject } from "../helpers";
+import Item from "./ShopItem";
 
 type Props = {
   data: DataObject;
