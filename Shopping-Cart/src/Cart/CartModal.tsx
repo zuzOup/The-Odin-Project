@@ -1,50 +1,29 @@
-import { useEffect, useState } from "react";
-import { DataObject } from "../Helpers";
-import CartItem from "./CartItems";
+import { useNavigate } from "react-router";
+import { Data, CartFuncs } from "../Helpers";
+import CartItems from "./CartItems";
 
 type Props = {
-  data: DataObject;
-  addToCart: (id: number) => void;
-  subtractFromCart: (id: number) => void;
-  removeFromCart: (id: number) => void;
-  emptyCart: () => void;
+  cart: Data[];
+  cartFuncs: CartFuncs;
+  setVisible: React.Dispatch<React.SetStateAction<string>>;
+  visible: string;
 };
 
-const cartFilter = (data: DataObject) => {
-  return Object.values(data).filter((x) => x.cart !== 0);
-};
+function CartModal({ cart, cartFuncs, setVisible, visible }: Props) {
+  const navigate = useNavigate();
 
-function CartModal({
-  data,
-  addToCart,
-  subtractFromCart,
-  removeFromCart,
-  emptyCart,
-}: Props) {
-  const [cart, setCart] = useState(cartFilter(data));
+  const handleCart = () => {
+    setVisible("hidden");
 
-  useEffect(() => {
-    setCart(cartFilter(data));
-  }, [data]);
+    navigate("/cart");
+  };
 
   return (
-    <div>
-      <div>
-        {Object.values(cart).map((x) => {
-          return (
-            <CartItem
-              key={x.id}
-              title={x.title}
-              amount={x.cart}
-              totalPrice={x.price * x.cart}
-              addToCart={() => addToCart(x.id)}
-              subtractFromCart={() => subtractFromCart(x.id)}
-              removeFromCart={() => removeFromCart(x.id)}
-            />
-          );
-        })}
-      </div>
-      <button onClick={emptyCart}> Empty Cart</button>
+    <div className={visible} id="modal">
+      <button onClick={() => setVisible("hidden")}>Hide Modal</button>
+      <CartItems cart={cart} cartFuncs={cartFuncs} />
+      <button onClick={cartFuncs.emptyCart}> Empty Cart</button>
+      <button onClick={handleCart}>Pay</button>
     </div>
   );
 }

@@ -1,13 +1,13 @@
 import { useEffect, useReducer } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { DataObject, initialData, Data, cartFilter, fetchData } from "./Helpers";
+import { DataObject, Data, cartFilter, fetchData } from "./Helpers";
 
 import Header from "./Header";
 import Homepage from "./Homepage/Homepage";
-import Cart from "./Cart/Cart";
 import Shop from "./Shop/Shop";
 import Contacts from "./Contacts/Contacts";
+import Payment from "./Cart/Payment";
 
 type Action =
   | { type: "fetchData"; payload: DataObject }
@@ -72,7 +72,18 @@ type State = {
 };
 
 const initialState = {
-  data: initialData,
+  data: {
+    0: {
+      category: "",
+      description: "",
+      id: 0,
+      image: "",
+      price: 0,
+      rating: { rate: 0, count: 0 },
+      title: "",
+      cart: 0,
+    },
+  },
   cart: [],
 };
 
@@ -87,57 +98,35 @@ function App() {
       });
   }, []);
 
-  const addToCart = (id: number) => {
-    dispatch({ type: "addToCart", payload: id });
-  };
-
-  const subtractFromCart = (id: number) => {
-    dispatch({ type: "subtractFromCart", payload: id });
-  };
-
-  const removeFromCart = (id: number) => {
-    dispatch({ type: "removeFromCart", payload: id });
-  };
-
-  const emptyCart = () => {
-    dispatch({ type: "emptyCart" });
+  const cartFuncs = {
+    addToCart: (id: number) => {
+      dispatch({ type: "addToCart", payload: id });
+    },
+    subtractFromCart: (id: number) => {
+      dispatch({ type: "subtractFromCart", payload: id });
+    },
+    removeFromCart: (id: number) => {
+      dispatch({ type: "removeFromCart", payload: id });
+    },
+    emptyCart: () => {
+      dispatch({ type: "emptyCart" });
+    },
   };
 
   return (
     <BrowserRouter>
-      <Header
-        data={state.data}
-        addToCart={addToCart}
-        subtractFromCart={subtractFromCart}
-        removeFromCart={removeFromCart}
-        emptyCart={emptyCart}
-      />
+      <Header cart={state.cart} cartFuncs={cartFuncs} />
       <main>
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route
-            path="/Shop"
-            element={
-              <Shop
-                data={state.data}
-                addToCart={addToCart}
-                subtractFromCart={subtractFromCart}
-                removeFromCart={removeFromCart}
-              />
-            }
+            path="/shop"
+            element={<Shop data={state.data} cartFuncs={cartFuncs} />}
           />
-          <Route path="/Contacts" element={<Contacts />} />
+          <Route path="/contacts" element={<Contacts />} />
           <Route
-            path="/Paymenet"
-            element={
-              <Cart
-                data={state.data}
-                addToCart={addToCart}
-                subtractFromCart={subtractFromCart}
-                removeFromCart={removeFromCart}
-                emptyCart={emptyCart}
-              />
-            }
+            path="/cart"
+            element={<Payment cart={state.cart} cartFuncs={cartFuncs} />}
           />
         </Routes>
       </main>

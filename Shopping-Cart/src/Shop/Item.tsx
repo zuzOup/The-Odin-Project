@@ -7,14 +7,9 @@ type Props = {
   removeFromCart: () => void;
 };
 
-function Item({
-  title,
-  url,
-  cartValue,
-  addToCart,
-  subtractFromCart,
-  removeFromCart,
-}: Props) {
+function Item(props: Props) {
+  const { title, url, cartValue, addToCart, subtractFromCart, removeFromCart } = props;
+
   return (
     <div className="item">
       <div>{title}</div>

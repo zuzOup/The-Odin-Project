@@ -1,14 +1,12 @@
-import { DataObject } from "../Helpers";
+import { CartFuncs, DataObject } from "../Helpers";
 import Item from "./Item";
 
 type Props = {
   data: DataObject;
-  addToCart: (id: number) => void;
-  subtractFromCart: (id: number) => void;
-  removeFromCart: (id: number) => void;
+  cartFuncs: CartFuncs;
 };
 
-function Shop({ data, addToCart, subtractFromCart, removeFromCart }: Props) {
+function Shop({ data, cartFuncs }: Props) {
   return (
     <div>
       shop
@@ -18,9 +16,9 @@ function Shop({ data, addToCart, subtractFromCart, removeFromCart }: Props) {
           title={x.title}
           url={x.image}
           cartValue={x.cart}
-          addToCart={() => addToCart(x.id)}
-          subtractFromCart={() => subtractFromCart(x.id)}
-          removeFromCart={() => removeFromCart(x.id)}
+          addToCart={() => cartFuncs.addToCart(x.id)}
+          subtractFromCart={() => cartFuncs.subtractFromCart(x.id)}
+          removeFromCart={() => cartFuncs.removeFromCart(x.id)}
         />
       ))}
     </div>

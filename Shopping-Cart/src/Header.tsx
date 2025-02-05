@@ -1,26 +1,23 @@
-import { Link } from "react-router";
+import { useState } from "react";
+import { Link, useLocation } from "react-router";
 
-import { DataObject } from "./Helpers";
+import { cartAmount, CartFuncs, Data } from "./Helpers";
 import CartModal from "./Cart/CartModal";
 
-interface Props {
-  data: DataObject;
-  addToCart: (id: number) => void;
-  subtractFromCart: (id: number) => void;
-  removeFromCart: (id: number) => void;
-  emptyCart: () => void;
-}
-
-const cartAmount = (data: DataObject) => {
-  return Object.values(data)
-    .filter((x) => x.cart !== 0)
-    .reduce((acc, cur) => {
-      return acc + cur.cart;
-    }, 0);
+type Props = {
+  cart: Data[];
+  cartFuncs: CartFuncs;
 };
 
-function Header(props: Props) {
-  const { data, addToCart, subtractFromCart, removeFromCart, emptyCart } = props;
+function Header({ cart, cartFuncs }: Props) {
+  const [visible, setVisible] = useState<string>("hidden");
+
+  const location = useLocation();
+
+  const openModal = () => {
+    if (location.pathname.includes("cart")) return;
+    setVisible("visible");
+  };
 
   return (
     <header>
@@ -28,15 +25,15 @@ function Header(props: Props) {
       <nav>
         <Link to="/">Home</Link>
         <Link to="/Shop">Shop</Link>
-
         <Link to="/Contacts">Contact</Link>
-        <button>Cart {cartAmount(data)}</button>
+        <button disabled={location.pathname.includes("cart")} onClick={openModal}>
+          Cart {cartAmount(cart)}
+        </button>
         <CartModal
-          data={data}
-          addToCart={addToCart}
-          subtractFromCart={subtractFromCart}
-          removeFromCart={removeFromCart}
-          emptyCart={emptyCart}
+          cart={cart}
+          cartFuncs={cartFuncs}
+          setVisible={setVisible}
+          visible={visible}
         />
       </nav>
     </header>

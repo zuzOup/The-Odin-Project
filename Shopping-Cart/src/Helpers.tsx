@@ -9,6 +9,18 @@ export function cartFilter(data: DataObject) {
   return Object.values(data).filter((x) => x.cart !== 0);
 }
 
+export const cartAmount = (cart: Data[]) => {
+  return cart.reduce((acc, cur) => {
+    return acc + cur.cart;
+  }, 0);
+};
+
+export const totalPrice = (cart: Data[]) => {
+  return cart.reduce((acc, cur) => {
+    return acc + cur.cart * cur.price;
+  }, 0);
+};
+
 // ---------------  *✩‧₊˚  TYPES  ˚₊‧✩*  ------------------------------------------------
 
 export type JsonData = {
@@ -34,17 +46,9 @@ export type Data = {
 
 export type DataObject = { [key: number]: Data };
 
-// ---------------  *✩‧₊˚  CONST  ˚₊‧✩*  ------------------------------------------------
-
-export const initialData = {
-  0: {
-    category: "",
-    description: "",
-    id: 0,
-    image: "",
-    price: 0,
-    rating: { rate: 0, count: 0 },
-    title: "",
-    cart: 0,
-  },
+export type CartFuncs = {
+  addToCart: (id: number) => void;
+  subtractFromCart: (id: number) => void;
+  removeFromCart: (id: number) => void;
+  emptyCart: () => void;
 };

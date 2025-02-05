@@ -1,25 +1,26 @@
-interface Props {
-  title: string;
-  amount: number;
-  totalPrice: number;
-  addToCart: () => void;
-  subtractFromCart: () => void;
-  removeFromCart: () => void;
-}
+import { CartFuncs, Data } from "../Helpers";
 
-function CartItems(props: Props) {
-  const { title, amount, totalPrice, addToCart, subtractFromCart, removeFromCart } =
-    props;
+type Props = {
+  cart: Data[];
+  cartFuncs: CartFuncs;
+};
 
+function CartItems({ cart, cartFuncs }: Props) {
   return (
-    <div>
-      <div>{title}</div>
-      <div> Amount : {amount}</div>
-      <div> Price : {totalPrice}</div>
-      <button onClick={addToCart}>++ </button>
-      <button onClick={subtractFromCart}>-- </button>
-      <button onClick={removeFromCart}></button>
-    </div>
+    <ul>
+      {cart.map((c) => {
+        return (
+          <li>
+            <div>{c.title}</div>
+            <div> Amount : {c.cart}</div>
+            <div>Price: {c.cart * c.price}</div>
+            <button onClick={() => cartFuncs.addToCart(c.id)}>++ </button>
+            <button onClick={() => cartFuncs.subtractFromCart(c.id)}>-- </button>
+            <button onClick={() => cartFuncs.removeFromCart(c.id)}>delete</button>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 
