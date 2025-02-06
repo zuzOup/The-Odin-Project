@@ -1,4 +1,4 @@
-import { CartFuncs, Data } from "../helpers";
+import { CartFuncs, Data, roundPrice } from "../helpers";
 
 type Props = {
   cart: Data[];
@@ -10,10 +10,10 @@ function CartItems({ cart, cartFuncs }: Props) {
     <ul>
       {cart.map((c) => {
         return (
-          <li>
+          <li key={c.id}>
             <div>{c.title}</div>
             <div> Amount : {c.cart}</div>
-            <div>Price: {c.cart * c.price}</div>
+            <div>Price: {roundPrice(c.cart * c.price)}</div>
             <button onClick={() => cartFuncs.addToCart(c.id)}>++ </button>
             <button onClick={() => cartFuncs.subtractFromCart(c.id)}>-- </button>
             <button onClick={() => cartFuncs.removeFromCart(c.id)}>delete</button>
