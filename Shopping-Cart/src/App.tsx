@@ -14,6 +14,7 @@ type Action =
   | { type: "addToCart"; payload: number }
   | { type: "subtractFromCart"; payload: number }
   | { type: "removeFromCart"; payload: number }
+  | { type: "changeAmount"; payload: { id: number; amount: number } }
   | { type: "emptyCart" };
 
 const reducer = (state: State, action: Action) => {
@@ -51,6 +52,16 @@ const reducer = (state: State, action: Action) => {
         [id]: { ...state.data[id], cart: 0 },
       };
 
+      const cart = cartFilter(data);
+
+      return { data, cart };
+    }
+    case "changeAmount": {
+      const id = action.payload.id;
+      const data = {
+        ...state.data,
+        [id]: { ...state.data[id], cart: action.payload.amount },
+      };
       const cart = cartFilter(data);
 
       return { data, cart };
@@ -107,6 +118,9 @@ function App() {
     },
     removeFromCart: (id: number) => {
       dispatch({ type: "removeFromCart", payload: id });
+    },
+    changeAmount: (id: number, amount: number) => {
+      dispatch({ type: "changeAmount", payload: { id, amount } });
     },
     emptyCart: () => {
       dispatch({ type: "emptyCart" });
