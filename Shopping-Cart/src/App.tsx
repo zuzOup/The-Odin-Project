@@ -8,6 +8,7 @@ import Homepage from "./Components/Homepage";
 import Shop from "./Components/Shop";
 import Contacts from "./Components/Contacts";
 import Payment from "./Components/Payment";
+import Footer from "./Components/Footer";
 
 type Action =
   | { type: "fetchData"; payload: DataObject }
@@ -144,7 +145,7 @@ function App() {
           />
         </Routes>
       </main>
-      <footer>Ahoj</footer>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -21,28 +21,53 @@ function ShopItem(props: Props) {
     changeAmount,
   } = props;
 
-  const [amount, setAmount] = useState<number>(cartValue);
+  const [amount, setAmount] = useState<number | string>(cartValue === 0 ? "" : cartValue);
 
-  const inputHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const inputKeyHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== "Enter") return;
-    changeAmount(amount);
+
+    changeAmount(Number(amount));
+    setAmount((amount) => {
+      if (Number(amount) === 0) return "";
+      return amount;
+    });
+  };
+
+  const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (Number(e.target.value) === 0) {
+      setAmount("");
+      e.target.value = "";
+    }
+    setAmount(Number(e.target.value));
+  };
+
+  const buttonHandler = () => {
+    if (amount === "") {
+      setAmount(1);
+      addToCart();
+    } else if (Number(amount) === 0) {
+      setAmount("");
+      changeAmount(0);
+    } else {
+      changeAmount(Number(amount));
+    }
   };
 
   const addToCartButton = () => {
-    setAmount((amount) => amount + 1);
-    subtractFromCart();
+    setAmount((amount) => Number(amount) + 1);
+    addToCart();
   };
 
   const subtractFromCartButton = () => {
     setAmount((amount) => {
-      if (amount === 0) return 0;
-      return amount - 1;
+      if (Number(amount) - 1 === 0) return "";
+      return Number(amount) - 1;
     });
-    addToCart();
+    subtractFromCart();
   };
 
   const removeFromCartButton = () => {
-    setAmount(0);
+    setAmount("");
     removeFromCart();
   };
 
@@ -53,15 +78,20 @@ function ShopItem(props: Props) {
       <label>
         Number in cart:
         <input
+          min="0"
+          placeholder="0"
           value={amount}
           type="number"
-          onChange={(e) => {
-            setAmount(Number(e.target.value));
-          }}
-          onKeyDown={inputHandler}
+          onChange={inputChangeHandler}
+          onKeyDown={inputKeyHandler}
         ></input>
       </label>
-      {cartValue === 0 && <button onClick={() => changeAmount(amount)}></button>}
+      {cartValue === 0 && <button onClick={buttonHandler}>Add 1 to Cart</button>}
+      {cartValue !== 0 && (
+        <button disabled={cartValue === Number(amount)} onClick={buttonHandler}>
+          Update
+        </button>
+      )}
       {cartValue !== 0 && (
         <>
           <button onClick={addToCartButton}>ADD 1 </button>

@@ -15,6 +15,11 @@ export function cartAmount(cart: Data[]) {
   }, 0);
 }
 
+export function cartAmountButton(cart: Data[]) {
+  if (cartAmount(cart) > 9999) return "...";
+  return cartAmount(cart);
+}
+
 export function roundPrice(price: number) {
   return price.toFixed(2);
 }

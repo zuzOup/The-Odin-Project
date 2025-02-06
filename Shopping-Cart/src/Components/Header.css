@@ -1,32 +1,92 @@
 header {
   width: 100%;
-  background-color: aqua;
-  position: relative;
-  z-index: 10;
+  background-color: var(--color-neutral);
+  display: flex;
+
+  justify-content: space-between;
 }
 
 h1 {
-  margin: 0;
+  align-self: center;
+  margin: 0px 40px;
+  font-size: 65px;
+  font-family: "Monoton", serif;
+  font-weight: 500;
+  color: var(--color-black);
 }
 
 nav {
-  width: 100%;
+  align-self: flex-end;
   height: 50px;
   display: flex;
   justify-content: end;
   align-items: center;
   z-index: 10;
+  gap: 20px;
+  font-size: 17px;
+  transition: all 100ms ease-in-out;
+
+  a,
+  a:visited {
+    color: var(--color-black);
+    text-decoration: none;
+    font-weight: 800;
+  }
+  a:hover {
+    color: var(--color-primary);
+    font-weight: 900;
+    text-shadow: var(--color-white) 0px 0 1px;
+  }
+  a:active {
+    color: var(--color-accent);
+    font-weight: 900;
+    text-shadow: var(--color-white) 0px 0 2px;
+  }
 
   .nav-button-cart {
     display: flex;
-    height: 100%;
+    width: 65px;
+    padding: 5px 15px;
+    margin: 0px 20px 0px 10px;
     justify-content: center;
     align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 10px;
+
+    background-color: var(--color-white);
+    transition: background-color 100ms ease-in-out;
+
+    button {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+  }
+
+  .nav-button-cart.false:hover {
+    background-color: var(--color-accent);
+    box-shadow: rgba(0, 0, 0, 0.3) 1.95px 1.95px 2.6px;
+    button {
+      color: var(--color-white);
+      font-weight: 500;
+    }
+  }
+
+  .nav-button-cart.false:active {
+    transform: translateY(2px);
 
     .modal-container {
-      width: 0px;
-      height: 0px;
+      transform: translateY(-2px);
     }
+  }
+
+  .modal-container {
+    align-self: flex-end;
+    width: 0px;
+    height: 0px;
   }
 }
 
@@ -34,11 +94,20 @@ nav {
   z-index: 0;
   width: 300px;
   min-height: 100px;
-  background-color: aliceblue;
+  background-color: rgba(240, 248, 255, 0);
   position: relative;
 
-  transform: translateX(-300px) translateY(10px);
+  transform: translateX(-285px);
   transition: all 300ms ease-in-out;
+
+  .modal-spacer {
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .modal-content {
+    background-color: aliceblue;
+  }
 }
 
 #modal.hidden {

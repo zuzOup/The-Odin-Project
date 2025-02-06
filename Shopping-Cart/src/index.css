@@ -1,6 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Quicksand:wght@300..700&display=swap");
+
+:root {
+  --color-white: #fbfbf9;
+  --color-neutral: #d2c4c4;
+  --color-primary: #8a737d;
+  --color-black: #33312e;
+  --color-accent: #9f9a7f;
+}
+
 body {
   margin: 0;
   overflow: hidden;
+  font-family: "Quicksand", serif;
+  background-color: var(--color-white);
 }
 
 #root {
@@ -9,14 +21,17 @@ body {
   overflow: hidden;
 }
 
+button {
+  all: unset;
+}
 
 header {
-  height: 100px;
+  height: 130px;
 }
 
 main {
-  height: calc(100vh - 130px);
-  overflow-y: scroll;
+  height: calc(100vh - 160px);
+  overflow-y: auto;
   .item {
     border: 1px solid salmon;
     padding: 20px;
