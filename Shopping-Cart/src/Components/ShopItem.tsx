@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 type Props = {
   title: string;
   url: string;
@@ -19,6 +21,31 @@ function ShopItem(props: Props) {
     changeAmount,
   } = props;
 
+  const [amount, setAmount] = useState<number>(cartValue);
+
+  const inputHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key !== "Enter") return;
+    changeAmount(amount);
+  };
+
+  const addToCartButton = () => {
+    setAmount((amount) => amount + 1);
+    subtractFromCart();
+  };
+
+  const subtractFromCartButton = () => {
+    setAmount((amount) => {
+      if (amount === 0) return 0;
+      return amount - 1;
+    });
+    addToCart();
+  };
+
+  const removeFromCartButton = () => {
+    setAmount(0);
+    removeFromCart();
+  };
+
   return (
     <div className="item">
       <div>{title}</div>
@@ -26,16 +53,22 @@ function ShopItem(props: Props) {
       <label>
         Number in cart:
         <input
-          value={cartValue}
+          value={amount}
           type="number"
           onChange={(e) => {
-            changeAmount(Number(e.target.value));
+            setAmount(Number(e.target.value));
           }}
+          onKeyDown={inputHandler}
         ></input>
       </label>
-      <button onClick={addToCart}>ADD 1 </button>
-      <button onClick={subtractFromCart}>-- 1 </button>
-      <button onClick={removeFromCart}>Remove from cart </button>
+      {cartValue === 0 && <button onClick={() => changeAmount(amount)}></button>}
+      {cartValue !== 0 && (
+        <>
+          <button onClick={addToCartButton}>ADD 1 </button>
+          <button onClick={subtractFromCartButton}>-- 1 </button>
+          <button onClick={removeFromCartButton}>Remove from cart </button>
+        </>
+      )}
     </div>
   );
 }
