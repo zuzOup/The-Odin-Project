@@ -5,14 +5,18 @@ body {
 
 #root {
   width: 100%;
-  height: calc(100vh - 30px);
-  overflow-x: hidden;
+  height: 100vh;
+  overflow: hidden;
 }
-nav {
+
+
+header {
   height: 100px;
 }
 
 main {
+  height: calc(100vh - 130px);
+  overflow-y: scroll;
   .item {
     border: 1px solid salmon;
     padding: 20px;

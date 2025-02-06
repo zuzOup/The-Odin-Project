@@ -144,6 +144,7 @@ function App() {
           />
         </Routes>
       </main>
+      <footer>Ahoj</footer>
     </BrowserRouter>
   );
 }
