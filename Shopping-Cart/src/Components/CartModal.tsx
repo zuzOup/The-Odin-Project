@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { Data, CartFuncs } from "../helpers";
 
 import CartItems from "./CartItems";
@@ -8,9 +8,10 @@ type Props = {
   cartFuncs: CartFuncs;
   setVisible: React.Dispatch<React.SetStateAction<string>>;
   visible: string;
+  
 };
 
-function CartModal({ cart, cartFuncs, setVisible, visible }: Props) {
+function CartModal({ cart, cartFuncs, setVisible, visible,  }: Props) {
   const navigate = useNavigate();
 
   const handleCart = () => {
@@ -21,10 +22,15 @@ function CartModal({ cart, cartFuncs, setVisible, visible }: Props) {
 
   return (
     <div className={visible} id="modal">
-      <button onClick={() => setVisible("hidden")}>Hide Modal</button>
+      {/* <button onClick={() => setVisible("hidden")}>Hide Modal</button> */}
       <CartItems cart={cart} cartFuncs={cartFuncs} />
-      <button onClick={cartFuncs.emptyCart}> Empty Cart</button>
-      <button onClick={handleCart}>Pay</button>
+      {cart.length > 0 && <button onClick={handleCart}>View Cart and Pay</button>}
+      {cart.length === 0 && (
+        <>
+          <div>Your shopping cart is empty</div>
+          <Link to="/shop">Continue shopping</Link>
+        </>
+      )}
     </div>
   );
 }
