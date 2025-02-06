@@ -12,6 +12,7 @@ function CartItems({ cart, cartFuncs }: Props) {
         return (
           <li key={c.id}>
             <div>{c.title}</div>
+            <img src={c.image} />
             <div> Amount : {c.cart}</div>
             <div>Price: {roundPrice(c.cart * c.price)}</div>
             <button onClick={() => cartFuncs.addToCart(c.id)}>++ </button>
