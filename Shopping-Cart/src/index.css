@@ -3,6 +3,7 @@
 :root {
   --color-white: #fbfbf9;
   --color-neutral: #d2c4c4;
+  --color-neutral2: #f9dbc2;
   --color-primary: #8a737d;
   --color-black: #33312e;
   --color-accent: #9f9a7f;
@@ -32,14 +33,25 @@ header {
 main {
   height: calc(100vh - 160px);
   overflow-y: auto;
-  .item {
-    border: 1px solid salmon;
-    padding: 20px;
+
+  &::-webkit-scrollbar {
+    width: 8px;
   }
 
-  img {
-    width: 50px;
-    height: 50px;
+  &::-webkit-scrollbar-track {
+    margin: 1px 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(0.5, var(--color-neutral2)),
+      color-stop(1, var(--color-neutral))
+    );
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 3px var(--color-accent) ;
   }
 }
 
