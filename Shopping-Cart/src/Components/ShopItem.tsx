@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { CartSVG } from "./SVG/CartSVG";
+import { TrashSVG } from "./SVG/TrashSVG";
 
 type Props = {
   title: string;
   url: string;
+  price: string;
   cartValue: number;
   addToCart: () => void;
   subtractFromCart: () => void;
@@ -14,6 +17,7 @@ function ShopItem(props: Props) {
   const {
     title,
     url,
+    price,
     cartValue,
     addToCart,
     subtractFromCart,
@@ -22,6 +26,18 @@ function ShopItem(props: Props) {
   } = props;
 
   const [amount, setAmount] = useState<number | string>(cartValue === 0 ? "" : cartValue);
+  const [glow, setGlow] = useState("");
+
+  const timeoutRef = useRef<number | null>(null);
+
+  const glowFunc = () => {
+    setGlow("glow");
+    setTimeout(() => {
+      timeoutRef.current = setTimeout(() => {
+        setGlow("");
+      }, 100);
+    });
+  };
 
   const inputKeyHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== "Enter") return;
@@ -31,6 +47,8 @@ function ShopItem(props: Props) {
       if (Number(amount) === 0) return "";
       return amount;
     });
+
+    glowFunc();
   };
 
   const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,20 +60,14 @@ function ShopItem(props: Props) {
   };
 
   const buttonHandler = () => {
-    if (amount === "") {
-      setAmount(1);
-      addToCart();
-    } else if (Number(amount) === 0) {
-      setAmount("");
-      changeAmount(0);
-    } else {
-      changeAmount(Number(amount));
-    }
+    setAmount(1);
+    addToCart();
   };
 
   const addToCartButton = () => {
     setAmount((amount) => Number(amount) + 1);
     addToCart();
+    glowFunc();
   };
 
   const subtractFromCartButton = () => {
@@ -64,6 +76,7 @@ function ShopItem(props: Props) {
       return Number(amount) - 1;
     });
     subtractFromCart();
+    glowFunc();
   };
 
   const removeFromCartButton = () => {
@@ -73,31 +86,48 @@ function ShopItem(props: Props) {
 
   return (
     <div className="item">
-      <div>{title}</div>
-      <img src={url} />
-      <label>
-        Number in cart:
-        <input
-          min="0"
-          placeholder="0"
-          value={amount}
-          type="number"
-          onChange={inputChangeHandler}
-          onKeyDown={inputKeyHandler}
-        ></input>
-      </label>
-      {cartValue === 0 && <button onClick={buttonHandler}>Add 1 to Cart</button>}
-      {cartValue !== 0 && (
-        <button disabled={cartValue === Number(amount)} onClick={buttonHandler}>
-          Update
+      <div className="item-img">
+        <img src={url} />
+      </div>
+      <div className="item-title">
+        <h2>{title}</h2>
+      </div>
+
+      <h3>${price}</h3>
+
+      {cartValue === 0 && (
+        <button className="item-button-addToCart item-button" onClick={buttonHandler}>
+          Add to Cart
         </button>
       )}
+
       {cartValue !== 0 && (
-        <>
-          <button onClick={addToCartButton}>ADD 1 </button>
-          <button onClick={subtractFromCartButton}>-- 1 </button>
-          <button onClick={removeFromCartButton}>Remove from cart </button>
-        </>
+        <div className="item-cartHandlers">
+          <div className={`item-input-container ${glow}`}>
+            <label>
+              <CartSVG />
+            </label>
+            <input
+              min="0"
+              placeholder="0"
+              value={amount}
+              type="number"
+              onChange={inputChangeHandler}
+              onKeyDown={inputKeyHandler}
+            ></input>
+          </div>
+          <div className="item-button-container">
+            <button onClick={addToCartButton} className="item-button">
+              +
+            </button>
+            <button onClick={subtractFromCartButton} className="item-button">
+              -
+            </button>
+            <button onClick={removeFromCartButton} className="item-button">
+              <TrashSVG />
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );

@@ -1,5 +1,7 @@
-import { CartFuncs, DataObject } from "../helpers";
+import { CartFuncs, DataObject, roundPrice } from "../helpers";
 import ShopItem from "./ShopItem";
+
+import "./shop.css";
 
 type Props = {
   data: DataObject;
@@ -8,13 +10,13 @@ type Props = {
 
 function Shop({ data, cartFuncs }: Props) {
   return (
-    <div>
-      shop
+    <div className="shop">
       {Object.values(data).map((x) => (
         <ShopItem
           key={x.id}
           title={x.title}
           url={x.image}
+          price={roundPrice(x.price)}
           cartValue={x.cart}
           addToCart={() => cartFuncs.addToCart(x.id)}
           subtractFromCart={() => cartFuncs.subtractFromCart(x.id)}

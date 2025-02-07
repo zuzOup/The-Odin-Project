@@ -1,8 +1,10 @@
 // ---------------  *✩‧₊˚  FUNCS  ˚₊‧✩*  ------------------------------------------------
 export function fetchData(json: JsonData[]) {
-  return json.reduce((acc, cur) => {
-    return { ...acc, [cur.id]: { ...cur, cart: 0 } };
-  }, {});
+  return json
+    .filter((x) => x.category !== "electronics")
+    .reduce((acc, cur) => {
+      return { ...acc, [cur.id]: { ...cur, cart: 0 } };
+    }, {});
 }
 
 export function cartFilter(data: DataObject) {
