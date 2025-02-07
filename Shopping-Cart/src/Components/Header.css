@@ -62,11 +62,12 @@ nav {
       justify-content: center;
       align-items: center;
       gap: 10px;
-      cursor: pointer;
+      
     }
   }
 
   .nav-button-cart.false:hover {
+    cursor: pointer;
     background-color: var(--color-accent);
     box-shadow: rgba(0, 0, 0, 0.3) 1.95px 1.95px 2.6px;
     button {
