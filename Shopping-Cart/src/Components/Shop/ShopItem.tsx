@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
-import { CartSVG } from "./SVG/CartSVG";
-import { TrashSVG } from "./SVG/TrashSVG";
+import { CartSVG } from "../SVG/CartSVG";
+import { TrashSVG } from "../SVG/TrashSVG";
 
 type Props = {
   title: string;

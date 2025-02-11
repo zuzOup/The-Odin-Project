@@ -1,12 +1,13 @@
 import { useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 
-import { cartAmount, cartAmountButton, CartFuncs, Data } from "../helpers";
+import { cartAmount, cartAmountButton, CartFuncs, Data } from "../../helpers";
 
-import CartModal from "./CartModal";
+
 
 import "./header.css";
-import { CartSVG } from "./SVG/CartSVG";
+import { CartSVG } from "../SVG/CartSVG";
+import CartModal from "./Modal/CartModal";
 
 type Props = {
   cart: Data[];
@@ -27,7 +28,11 @@ function Header({ cart, cartFuncs }: Props) {
     setVisible("visible");
   };
 
-  const closeModal = () => {
+  const closeModal = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    const element = e.relatedTarget as HTMLInputElement;
+
+    if (element.id === "modal" || element.id === "cart-button") return;
+
     timeoutRef.current = setTimeout(() => {
       setVisible("hidden");
     }, 300);
@@ -40,17 +45,25 @@ function Header({ cart, cartFuncs }: Props) {
 
   return (
     <header>
-      <h1>The Shop</h1>
+      <h1
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        The Shop
+      </h1>
       <nav>
         <Link to="/">Home</Link>
         <Link to="/shop">Shop</Link>
-        <Link to="/contacts">Contact</Link>
-        <div
-          className={`${location.pathname.includes("cart")} nav-button-cart`}
-          onMouseEnter={openModal}
-          onMouseLeave={closeModal}
-        >
-          <button onClick={cartNavigate} disabled={location.pathname.includes("cart")}>
+        <div className="cart-button-container">
+          <button
+            className={`${location.pathname.includes("cart")}`}
+            id="cart-button"
+            disabled={location.pathname.includes("cart")}
+            onMouseEnter={openModal}
+            onMouseLeave={closeModal}
+            onClick={cartNavigate}
+          >
             <CartSVG />
             {cartAmount(cart) !== 0 && <div>{cartAmountButton(cart)}</div>}
           </button>
@@ -60,6 +73,7 @@ function Header({ cart, cartFuncs }: Props) {
               cartFuncs={cartFuncs}
               setVisible={setVisible}
               visible={visible}
+              closeModal={closeModal}
             />
           </div>
         </div>

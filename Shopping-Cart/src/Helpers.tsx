@@ -33,6 +33,16 @@ export function totalPrice(cart: Data[]) {
   return roundPrice(total);
 }
 
+export function getFutureDate() {
+  const today = new Date();
+  today.setDate(today.getDate() + 5);
+
+  const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day:"numeric" };
+  const formattedDate = today.toLocaleDateString("en-US", options);
+
+  return formattedDate;
+}
+
 // ---------------  *✩‧₊˚  TYPES  ˚₊‧✩*  ------------------------------------------------
 
 export type JsonData = {

@@ -1,0 +1,99 @@
+.react-multi-carousel-list {
+  height: 100%;
+  width: 100%;
+
+  ul:first-child {
+    height: 100%;
+  }
+}
+
+.react-multiple-carousel__arrow {
+  background-color: rgba(210, 196, 196, 0.5);
+}
+
+.react-multiple-carousel__arrow:hover {
+  background-color: rgba(138, 115, 125, 0.5) !important;
+}
+.react-multi-carousel-dot button {
+  border-color: var(--color-neutral) !important;
+  width: 10px !important;
+  height: 10px !important;
+  margin-bottom: 5px !important;
+}
+
+.react-multi-carousel-dot--active button {
+  background-color: var(--color-accent) !important;
+}
+
+.carousel-item {
+  display: block;
+  height: calc(100vh - 160px);
+  margin: auto;
+  width: 100vw;
+
+  .text {
+    position: relative;
+    background-color: rgba(250, 235, 215, 0.149);
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+      font-size: 4em;
+      text-shadow: var(--color-neutral2) 0px 0 10px;
+      font-style: italic;
+    }
+    p {
+      text-shadow: var(--color-neutral) 0px 0 10px;
+      font-size: 2em;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: rgba(159, 154, 127, 0.8);
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: rgb(138, 115, 125, 0.8);
+    }
+    button:active {
+      transform: translateY(2px);
+    }
+  }
+
+  .carousel-item--backdrop {
+    transform: translateY(-100%);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.carousel-item1 {
+  .carousel-item--backdrop {
+    background-image: url("https://images.unsplash.com/photo-1481437156560-3205f6a55735?q=80&w=1795&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  }
+}
+
+.carousel-item2 {
+  .carousel-item--backdrop {
+    background-image: url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  }
+}
+
+.carousel-item3 {
+  .carousel-item--backdrop {
+    background-image: url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  }
+}

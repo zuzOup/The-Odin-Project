@@ -3,12 +3,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { DataObject, Data, cartFilter, fetchData } from "./helpers";
 
-import Header from "./Components/Header";
-import Homepage from "./Components/Homepage";
-import Shop from "./Components/Shop";
-import Contacts from "./Components/Contacts";
-import Payment from "./Components/Payment";
-import Footer from "./Components/Footer";
+import Header from "./Components/Header/Header";
+
+import Homepage from "./Components/Homepage/Homepage";
+import Shop from "./Components/Shop/Shop";
+import Cart from "./Components/Cart/Cart";
+
+import Footer from "./Components/Footer/Footer";
 
 type Action =
   | { type: "fetchData"; payload: DataObject }
@@ -138,11 +139,11 @@ function App() {
             path="/shop"
             element={<Shop data={state.data} cartFuncs={cartFuncs} />}
           />
-          <Route path="/contacts" element={<Contacts />} />
           <Route
             path="/cart"
-            element={<Payment cart={state.cart} cartFuncs={cartFuncs} />}
+            element={<Cart cart={state.cart} cartFuncs={cartFuncs} />}
           />
+          <Route path="*" element={<Homepage />} />
         </Routes>
       </main>
       <Footer />
