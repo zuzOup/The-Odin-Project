@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/styles.css" />
+
+    <link rel="icon" href="https://fav.farm/💬" type="image/x-icon" />
+    <title><%=title%> | Zuzana O.</title>
+  </head>
+  <body>
+    <h1>Mini Message Board - Add New Message</h1>
+
+    <form action="/new" method="POST">
+      <p>
+        <label for="messageUser">Username:</label>
+        <input
+          type="text"
+          name="messageUser"
+          id="messageUser"
+          placeholder="Your name"
+          required
+        />
+      </p>
+      <p>
+        <label for="messageText">Message:</label>
+        <textarea
+          name="messageText"
+          id="messageText"
+          placeholder="Your message"
+          required
+        ></textarea>
+      </p>
+      <button type="submit">Submit</button>
+    </form>
+    <div class="button-container">
+      <a class="button" href="/">Go back</a>
+    </div>
+    <div class="name">
+      By <a href="https://github.com/zuzOup" target="_blank">Zuzana O.</a>
+    </div>
+  </body>
+</html>

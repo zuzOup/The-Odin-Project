@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/styles.css" />
+
+    <link rel="icon" href="https://fav.farm/💬" type="image/x-icon" />
+    <title><%=title%> | Zuzana O.</title>
+  </head>
+  <body>
+    <h1>Mini Message Board - Message Details</h1>
+    <ul>
+      <li>
+        <p><b>User name: </b> <%=message.user %></p>
+      </li>
+      <li>
+        <p><b>Text: </b> <%=message.text %></p>
+      </li>
+      <li>
+        <p><b>Time posted: </b> <%=(message.added).toLocaleString() %></p>
+      </li>
+    </ul>
+    <div class="button-container">
+      <a class="button" href="/">Go back</a>
+    </div>
+    <div class="name">
+      By <a href="https://github.com/zuzOup" target="_blank">Zuzana O.</a>
+    </div>
+  </body>
+</html>
