@@ -1,4 +1,4 @@
- #[Project: CV Application](https://www.theodinproject.com/lessons/node-path-react-new-cv-application)
+ # [Project: CV Application](https://www.theodinproject.com/lessons/node-path-react-new-cv-application)
 
 1. Create a new React project.
 2. Think about how to structure your application into components. Your application should include:
