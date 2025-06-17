@@ -12,6 +12,10 @@
 
 ---------------------------------------------
 Little added bonus: Tailwind, yay!
+
+
 [Live Code Here](https://sweet-manatee-d66f51.netlify.app/)
+
+
 
 ![preview](https://github.com/user-attachments/assets/b6fe12bd-9c7a-42fc-bb4e-1c145cb9b985)
