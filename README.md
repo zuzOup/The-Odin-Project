@@ -4,19 +4,19 @@
 
 Projects I have completed as part of the [Full Stack Javascript Path](https://www.theodinproject.com/paths/full-stack-javascript):
 
- ###   [Sign-up Form](https://zuzoup.github.io/The-Odin-Project/Sign-up-Form/)
+ ### [Sign-up Form](https://zuzoup.github.io/The-Odin-Project/Sign-up-Form/)
 [Repo](https://github.com/zuzOup/The-Odin-Project/tree/main/Sign-up-Form) |  [ Instructions ](https://www.theodinproject.com/lessons/node-path-intermediate-html-and-css-sign-up-form)    
 A clean and responsive sign-up **form** built with **HTML** and CSS. Includes styling for input focus and validation states, with a background image and custom font.
 
-###  [Admin Dashboard](https://zuzoup.github.io/The-Odin-Project/Admin-Dashboard/)
+### [Admin Dashboard](https://zuzoup.github.io/The-Odin-Project/Admin-Dashboard/)
 [Repo](https://github.com/zuzOup/The-Odin-Project/tree/main/Admin-Dashboard) |  [ Instructions ](https://www.theodinproject.com/lessons/node-path-intermediate-html-and-css-admin-dashboard)\
 A dashboard layout built with CSS Grid, featuring a sidebar, header, and main content sections. Focuses on **layout structure** and **grid** practice.
 
-###   [Library](https://zuzoup.github.io/The-Odin-Project/Library/)
+### [Library](https://zuzoup.github.io/The-Odin-Project/Library/)
 [Repo](https://github.com/zuzOup/The-Odin-Project/tree/main/Library) |  [ Instructions ](https://www.theodinproject.com/lessons/node-path-javascript-library)\
 A simple library app for managing a list of books using **JavaScript object constructors**. Lets users add, display, update read status, and remove books.
 
-###  [Tic-Tac-Toe](https://zuzoup.github.io/The-Odin-Project/Tic-Tac-Toe)
+### [Tic-Tac-Toe](https://zuzoup.github.io/The-Odin-Project/Tic-Tac-Toe)
 [Repo](https://github.com/zuzOup/The-Odin-Project/tree/main/Tic-Tac-Toe) |  [ Instructions ](https://www.theodinproject.com/lessons/node-path-javascript-tic-tac-toe)\
 A browser-playable Tic Tac Toe game built using **JavaScript factory functions** and the **module pattern**, emphasizing code organization, game logic separation, and interactive UI updates.
 
