@@ -5,7 +5,7 @@
 Projects I have completed as part of the [Full Stack Javascript Path](https://www.theodinproject.com/paths/full-stack-javascript):
 
  ###   [Sign-up Form](https://zuzoup.github.io/The-Odin-Project/Sign-up-Form/)
-[Repo](https://github.com/zuzOup/The-Odin-Project/tree/main/Sign-up-Form) |  [ Instructions ](https://www.theodinproject.com/lessons/node-path-intermediate-html-and-css-sign-up-form)\    
+[Repo](https://github.com/zuzOup/The-Odin-Project/tree/main/Sign-up-Form) |  [ Instructions ](https://www.theodinproject.com/lessons/node-path-intermediate-html-and-css-sign-up-form)    
 A clean and responsive sign-up **form** built with **HTML** and CSS. Includes styling for input focus and validation states, with a background image and custom font.
 
 ###  [Admin Dashboard](https://zuzoup.github.io/The-Odin-Project/Admin-Dashboard/)
