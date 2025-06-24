@@ -46,5 +46,5 @@ A **React** memory game fetching images from an **API** with score tracking and 
 
 ### [Shopping cart](https://serene-kitten-aad087.netlify.app/)
 [Repo](https://github.com/zuzOup/The-Odin-Project/tree/main/Shopping-Cart) |  [ Instructions ](https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart) \
-A **React** shopping cart app with product listing, quantity controls, cart updates, and multi-page navigation—fully tested and **SPA**-ready for deployment.
+A **React** shopping cart app with product listing, quantity controls, cart updates, and multi-page navigation - fully tested and **SPA**-ready for deployment.
 
